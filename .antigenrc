@@ -1,0 +1,14 @@
+# load the oh-my-zsh's library
+antigen use oh-my-zsh
+
+# generic 
+antigen bundle git
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+
+# theme
+antigen theme robbyrussell
+
+# finish
+antigen apply 

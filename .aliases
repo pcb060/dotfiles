@@ -1,0 +1,22 @@
+# GENERAL/SYSTEM #
+  alias clc='clear'
+  alias syu='sudo pacman -Syu'
+  alias tsyu='trizen -Syu'
+  alias tsyun='trizen -Syu --noconfirm'
+  alias publicip='wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1'
+  alias mstat='systemctl status mariadb'
+  alias mstart='systemctl start mariadb'
+  alias mstop='systemctl stop mariadb'
+  alias mrest='systemctl restart mariadb'
+  
+# APPLICATIONS / SCRIPTS #
+  # launches cht.sh in search mode
+  alias chtcht='cht.sh --shell'
+  
+  # launches android emulator for react-native
+  alias rnemu='cd $ANDROID_HOME/tools; ./emulator -avd Nexus_5X_API_27 &disown'
+
+# GIT #
+  # shows log with date and author
+  alias gitlog='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
+  alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
