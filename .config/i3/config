@@ -217,8 +217,8 @@ client.placeholder      $black    $black     $white   $black     $black
 
 client.background       $black
 
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 2
+default_floating_border pixel 2
 
 gaps top 28
 

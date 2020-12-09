@@ -7,7 +7,8 @@ fixed-center = true
 
 font-0 = Iosevka Nerd Font Mono:size=12;3
 font-1 = Iosevka Nerd Font Mono:size=18;4
-font-2 = IPAGothic:size=12;3
+font-2 = Iosevka Nerd Font Mono:size=22;5
+font-3 = IPAGothic:size=12;3
 
 modules-left = i3 spotify
 modules-center = date
@@ -169,7 +170,7 @@ format-connected = <label-connected>
 format-connected-underline = ${colors.dgrey}
 format-disconnected = 
 
-label-connected = %{T2}%{T-} %downspeed:0:6% %{T2}祝%{T-} %upspeed:0:6%
+label-connected = %{T3}%{T-} %downspeed:0:6%  %{T3}%{T-} %upspeed:0:6%
 label-connected-foreground = ${colors.white}
 
 label-disconnected = %{T2}ﲁ%{T-}
