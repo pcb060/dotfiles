@@ -1,0 +1,8 @@
+[Scheme]
+Name=Dark Flashy
+BackgroundDarkness=0.850000
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+ColorCursor=#ffffffffffff
+ColorForeground=#ffffffffffff
+ColorBackground=#000000000000
+ColorPalette=rgb(255,40,220);rgb(249,38,114);rgb(166,226,46);rgb(245,143,229);rgb(102,217,239);rgb(174,129,255);rgb(161,239,228);rgb(248,248,242);rgb(41,231,245);rgb(249,38,114);rgb(166,226,46);rgb(245,143,229);rgb(102,217,239);rgb(174,129,255);rgb(161,239,228);rgb(249,248,245)
