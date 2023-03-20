@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+### BASH / SYSTEM ###
+  alias clc="clear"
+
+  alias syu="sudo pacman -Syu"
+  alias pacrm="sudo pacman -Rcns"
+
+### UTILITIES / TOOLS ###
+  alias cbat="bat --paging=never"
+
+### GIT ###
+  alias gs="git status"
+  
+  alias gl="git log"
+    alias glf="git log --first-parent"
+  
+  alias gr="git rebase"
+    alias gri="gr -i"
+  alias gR="git reset"
+
+  alias gc="git checkout"
+    alias gcb"git checkout -b"
+  alias gb="git branch"
+  alias gbD="git branch -D"
+
+  alias gst="git stash"
+    alias gstl="gst list"
+    alias gsts="gst show"
+
+  alias gf="git fetch"
+  alias gp="git pull"
+  alias gm="git merge"
+  alias gP="git push"
+
+  alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+### PYTHON ###
+  alias avenv="source .venv/bin/activate"
+  
