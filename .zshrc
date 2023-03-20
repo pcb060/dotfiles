@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-source /usr/share/zsh/share/antigen.zsh
-antigen init ~/.antigenrc
+source .myaliases
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+source /usr/share/zsh/share/antigen.zsh
+antigen apply ~/.antigenrc
+
+eval "$(starship init zsh)"
