@@ -49,3 +49,8 @@ for_window [app_id="blueman-manager"] floating enable,  resize set width 40 ppt 
 
 # # Inhibit idle
 # for_window [app_id="firefox"] inhibit_idle fullscreen
+
+# Opacity
+set $opacity_full 1
+set $opacity_high 0.97
+for_window [app_id="xfce4-terminal"] opacity $opacity_high
