@@ -40,7 +40,7 @@ exec swayidle -w\
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Lock Screen
-bindsym $mod+l exec betterlockscreen -l dimblur
+bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
 
 ### Key bindings
 # Open the power menu

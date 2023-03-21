@@ -7,7 +7,7 @@ font pango:Rubik 10
 set $bg 	        #d65d0e
 set $bg-inactive    #323232
 set $bg-urgent      #000000
-set $text           #eeeeec
+set $text           #eeeeee
 set $text-inactive  #babdb6
 
 set $bar            #323232
