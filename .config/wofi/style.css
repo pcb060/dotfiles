@@ -1,14 +1,11 @@
-/*
-Arc-Dark Color Scheme
-*/
-
-@define-color highlight #5294e2;
-@define-color base1  #404552;
-@define-color base2 #40455;
-@define-color base3  #4b5160;
+@define-color highlight #98971a;
+@define-color gruvtext #ebdbb2;
+@define-color base1 #3c3836;
+@define-color base2 #32302f;
+@define-color base3 #504945;
 
 *{
-    font-family: UbuntuMono;
+    font-family: Rubik;
 }
 
 window {
@@ -20,7 +17,7 @@ window {
     padding:3px;
     border-radius: 5px;
     border:none;
-    color: white;
+    color: @gruvtext;
 }
 
 #inner-box {
@@ -35,7 +32,7 @@ window {
 
 #text {
     padding: 5px;
-    color: white;
+    color: @gruvtext;
 }
 
 #entry:nth-child(even) {

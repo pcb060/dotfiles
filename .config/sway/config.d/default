@@ -4,7 +4,6 @@ set $mod Mod4
 # Terminal vars
 set $TERMINAL xfce4-terminal
 set $FTERMINAL xfce4-terminal -T "FTerm"
-set $WTERMINAL xfce4-terminal -T "WTerm" --geometry 90x26 -x zsh -c "echo ''; neofetch; zsh"
 
 # start terminal
 bindsym $mod+t exec $TERMINAL
@@ -40,7 +39,7 @@ exec swayidle -w\
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Lock Screen
-bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
+bindsym $mod+l exec swaylock -C ~/.config/swaylock/configs
 
 ### Key bindings
 # Open the power menu
@@ -182,9 +181,9 @@ bindsym $mod+v exec vscodium
 bindsym $mod+s exec spotify
 bindsym $mod+f exec $FTERMINAL --geometry 120x30 -e ranger
 bindsym $mod+Shift+f exec thunar
-#bindsym $mod+m exec typora
+bindsym $mod+m exec obsidian
 #bindsym $mod+a exec ~/.local/share/Steam/steamapps/common/Aseprite/aseprite
-bindsym $mod+g exec $FTERMINAL -e gotop
+bindsym $mod+g exec $FTERMINAL -e glances
 
 ### SCREENSHOTS
 bindsym Print exec flameshot full -c

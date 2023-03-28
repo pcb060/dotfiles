@@ -2,26 +2,29 @@
 exec_always ~/.config/sway/scripts/import-gsettings
 
 # Default Font
-font pango:Rubik 10
+font pango:Rubik 11
 
-set $bg 	        #d65d0e
-set $bg-inactive    #323232
+# set $bg 	        #d65d0e
+set $bg             #b8bb26
+set $bg-dark        #98971a
+set $bg-inactive    #32302f
 set $bg-urgent      #000000
-set $text           #eeeeee
-set $text-inactive  #babdb6
+set $text           #ebdbb2
+set $text-inactive  #bdae93
 
 set $bar            #323232
 set $statusline     #e0e0e0
 
-client.focused          $bg           $bg          $text          $bg $bg
-client.unfocused        $bg-inactive  $bg-inactive $text-inactive $bar $bar
-client.focused_inactive $bg-inactive  $bg-inactive $text-inactive $bar $bar
-client.urgent           $bg-urgent    $bg-urgent   $text          $bar $bar
+# class                 border        background   text           indicator child_border
+client.focused          $bg-dark      $bg-dark     $bg-urgent     $bg       $bg
+client.unfocused        $bg-inactive  $bg-inactive $text-inactive $bar      $bar
+client.focused_inactive $bg-inactive  $bg-inactive $text-inactive $bar      $bar
+client.urgent           $bg-urgent    $bg-urgent   $text          $bar      $bar
 
 ## Hide titlebar on windows:
 #default_border pixel 1
-default_border pixel 2
-default_floating_border pixel
+default_border pixel 4
+default_floating_border pixel 4
 
 # centers titles
 title_align center

@@ -4,12 +4,11 @@
     "position": "top",
 
     // If height property would be not present, it'd be calculated dynamically
-    "height": 30,
+    "height": 28,
 
     "modules-left": [
-        "custom/launcher",
         "sway/workspaces",
-        "sway/mode",
+        "sway/mode"
     ],
  
     "modules-center": [
@@ -20,16 +19,15 @@
         "idle_inhibitor",
         "memory",
         "cpu",
+        //"custom/keyboard-layout"
         "pulseaudio",
-        "custom/keyboard-layout",
         "battery",
-        //"custom/PBPbattery",
         "backlight#icon",
         "backlight#value",
         "clock",
         "tray",
         //"custom/weather",
-        "custom/power",
+        "custom/power"
     ],
 
     // Modules
@@ -56,14 +54,9 @@
         "format-icons": ["", "", "", "", ""]
     },
 
-    "custom/PBPbattery": {
-        "exec": "~/.config/waybar/scripts/PBPbattery.sh",
-        "format": "{}",
-    },
-
     "clock": {
         "interval": 10,
-        "format-alt": " {:%e %b %Y}", // Icon: calendar-alt
+        "format-alt": " {:%d/%m/%Y}", // Icon: calendar-alt
         "format": "{:%H:%M}",
         "tooltip-format": "{:%e %B %Y}"
     },
@@ -73,9 +66,9 @@
         "format": "  {usage}% ({load})", // Icon: microchip
         "states": {
             "warning": 70,
-            "critical": 90,
+            "critical": 90
         },
-        "on-click": "xfce4-terminal -e 'htop'",
+        "on-click": "xfce4-terminal -e 'htop'"
     },
 
     "custom/keyboard-layout": {
@@ -86,7 +79,7 @@
         // Signal sent by Sway key binding (~/.config/sway/key-bindings)
         "signal": 1, // SIGHUP
         "tooltip": false,
-        "on-click": "~/.config/waybar/scripts/keyhint.sh",
+        "on-click": "~/.config/waybar/scripts/keyhint.sh"
     },
 
     "memory": {
@@ -105,13 +98,13 @@
         "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
         "format-disconnected": "⚠  Disconnected",
         "tooltip-format": "{ifname}: {ipaddr}",
-        "on-click": "xfce4-terminal -e 'nmtui'",
+        "on-click": "xfce4-terminal -e 'nmtui'"
     },
     "network#vpn": {
         "interface": "tun0",
         "format": "  {essid} ({signalStrength}%)",
         "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
     },
 
     "sway/mode": {
@@ -128,14 +121,14 @@
         "disable-scroll": true,
         "disable-markup" : false,
         "all-outputs": true,
-        "format": "  {icon}  ",
+        "format": "  {icon}  "
         //"format":"{icon}",
-        "format-icons": {
+        /*"format-icons": {
             "1": "",
             "2": "",
             "3": "",
             "4": "",
-        }
+        }*/
     },
 
     "pulseaudio": {
@@ -157,7 +150,7 @@
         },
         "on-click": "pavucontrol",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
     },
 
     // to use the weather module replace <your_location> with your city or town
@@ -165,12 +158,12 @@
     "custom/weather": {
         "exec": "~/.config/waybar/scripts/weather.sh <your_location>", 
         "return-type": "json",
-        "interval": 600,
+        "interval": 600
     },
 
     "tray": {
         "icon-size": 18,
-        "spacing":10,
+        "spacing":10
      },
 
     "backlight#icon": {
@@ -207,12 +200,12 @@
     "custom/launcher": {
         "format":" ",
         "on-click": "exec wofi -c ~/.config/wofi/config -I",
-        "tooltip": false,
+        "tooltip": false
     },
 
     "custom/power": {
         "format":"⏻",
         "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
-        "tooltip": false,
-    },
+        "tooltip": false
+    }
 }

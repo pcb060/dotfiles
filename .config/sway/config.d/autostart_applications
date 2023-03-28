@@ -1,6 +1,8 @@
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 # Auth with polkit-gnome:
-exec tmwnd # Desktop notifications
+exec wired -r # Desktop notifications
 exec nm-applet --indicator # Network Applet
+
+exec mega
 
 # GTK3 applications take a long time to start
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -9,3 +11,5 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 exec unclutter
 exec swaybg -i ~/Pictures/Wallpaperz/wallhaven-wqqke6.jpg -m fill
+
+exec xfce4-terminal -T "WTerm" --geometry 90x26 -x zsh -c "echo ''; neofetch; zsh"

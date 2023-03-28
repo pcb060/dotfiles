@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+alias mys="source ~/.myaliases"
+alias mya="bat ~/.myaliases"
+alias mmya="v ~/.myaliases"
 
 ### BASH / SYSTEM ###
   alias clc="clear"
@@ -6,8 +9,20 @@
   alias syu="sudo pacman -Syu"
   alias pacrm="sudo pacman -Rcns"
 
+
+### DOTFILES ###
+  alias dotf="dotfiles"
+  alias dotfs="dotfiles status"
+  alias dotfa="dotfiles add"
+
+
 ### UTILITIES / TOOLS ###
   alias cbat="bat --paging=never"
+  
+  alias n="nvim"
+    alias v="nvim" 
+
+  alias r="ranger"
 
 ### GIT ###
   alias gs="git status"

@@ -1,200 +1,187 @@
-/* =============================================================================
- *
- * Waybar configuration
- *
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- *
- * =========================================================================== */
+/* // Dark Background */
+/* $gb-dm-bg0: #282828; */
+/* $gb-dm-bg0-hard: #1d2021; */
+/* $gb-dm-bg0-soft: #32302f; */
+/* $gb-dm-bg1: #3c3836; */
+/* $gb-dm-bg2: #504945; */
+/* $gb-dm-bg3: #665c54; */
+/* $gb-dm-bg4: #7c6f64; */
 
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
+/* // Dark Foreground */
+/* $gb-dm-fg0: #fbf1c7; */
+/* $gb-dm-fg1: #ebdbb2; */
+/* $gb-dm-fg2: #d5c4a1; */
+/* $gb-dm-fg3: #bdae93; */
+/* $gb-dm-fg4: #a89984; */
 
-/*
-Arc-Dark Color Scheme
-*/
-@define-color highlight #5294e2 ;
-@define-color base1  #404552 ;
+/* // Dark Colors */
+/* $gb-dm-dark-red: #cc241d; */
+/* $gb-dm-dark-green: #98971a; */
+/* $gb-dm-dark-yellow: #d79921; */
+/* $gb-dm-dark-blue: #458588; */
+/* $gb-dm-dark-purple: #b16286; */
+/* $gb-dm-dark-aqua: #689d6a; */
+/* $gb-dm-dark-orange: #d65d0e; */
+/* $gb-dm-dark-gray: #928374; */
 
-@keyframes blink-warning {
-    70% {
-        color: white;
-    }
+/* $gb-dm-light-red: #fb4934; */
+/* $gb-dm-light-green: #b8bb26; */
+/* $gb-dm-light-yellow: #fabd2f; */
+/* $gb-dm-light-blue: #83a598; */
+/* $gb-dm-light-purple: #d3869b; */
+/* $gb-dm-light-aqua: #8ec07c; */
+/* $gb-dm-light-orange: #f38019; */
+/* $gb-dm-light-gray: #a89984; */
 
-    to {
-        color: white;
-        background-color: orange;
-    }
-}
-
-@keyframes blink-critical {
-    70% {
-      color: white;
-    }
-
-    to {
-        color: white;
-        background-color: red;
-    }
-}
-
-/* -----------------------------------------------------------------------------
- * Base styles
- * -------------------------------------------------------------------------- */
-
-/* Reset all styles */
 * {
     border: none;
     border-radius: 0;
-    min-height: 0;
-    margin: 1px;
-    padding: 0;
-}
-
-/* The whole bar */
-#waybar {
-    background: transparent;
-    color: #bebebe;
-    background-color: @base1;
-    font-family: UbuntuMono;
+    font-family: "Hack Nerd Font Mono", "SF Mono", "Material Icons", monospace;
     font-size: 14px;
-}
-
-/* Every modules */
-#battery,
-#clock,
-#backlight,
-#cpu,
-#custom-keyboard-layout,
-#memory,
-#mode,
-#custom-weather,
-#network,
-#pulseaudio,
-#temperature,
-#tray,
-#idle_inhibitor,
-#custom-PBPbattery {
-    padding:0.5rem 0.6rem;
-    margin: 1px 0px;
-}
-
-/* -----------------------------------------------------------------------------
- * Modules styles
- * -------------------------------------------------------------------------- */
-
-#battery {
+    min-height: 0;
+    padding-right: 3px;
+  }
+  
+  window#waybar {
+    background: #1d2021;
+    color: #fbf1c7;
+  }
+  
+  #workspaces button {
+    padding: 0 4px;
+    background: transparent;
+    color: #fbf1c7;
+    border-bottom: 2px solid transparent;
+  }
+  
+  #workspaces button.focused {
+    background: #181818;
+    border-bottom: 2px solid #d3869b;
+  }
+  
+  #window,
+  #clock,
+  #battery,
+  #cpu,
+  #memory,
+  #temperature,
+  #backlight,
+  #network,
+  #pulseaudio,
+  #tray,
+  #mode,
+  #idle_inhibitor,
+  #language,
+  #custom-arch,
+  #custom-disturb_on,
+  #custom-disturb_off,
+  #custom-mic,
+  #custom-dismiss_notifications,
+  #custom-dnd,
+  #mpd {
+    padding: 0 8px;
+    margin: 0;
+  }
+  
+  #window {
+    border-left: 2px solid #b16286;
+  }
+  
+  #clock {
+    background-color: #282828;
+  }
+  
+  #network {
+    border-bottom: 2px solid #b16286;
+  }
+  
+  #pulseaudio {
+    border-bottom: 2px solid #83a598;
+  }
+  
+  #idle_inhibitor {
+    border-bottom: 2px solid #cc241d;
+  }
+  
+  #idle_inhibitor.activated {
+    background-color: #fb4934;
+    color: white;
+  }
+  
+  #language {
+    border-bottom: 2px solid #8ec07c;
+  }
+  
+  #custom-disturb-on,
+  #custom-disturb-off,
+  #custom-arch {
+    color: white;
+    background: #e91e63;
+  }
+  
+  #custom-mic {
+    border-bottom: 2px solid transparent;
+  }
+  
+  #custom-mic.not-muted {
+    color: #b8bb26;
+    border-bottom-color: #b8bb26;
+  }
+  
+  #custom-mic.muted {
+    /* color: #fb4934; */
+    border-bottom-color: #fb4934;
+    color: #fbf1c7;
+    background-color: #fb4934;
+  }
+  
+  #custom-dnd {
+    border-bottom: 2px solid #d79921;
+    color: #fadb2f;
+  }
+  
+  #custom-dnd.-on {
+    color: #282828;
+    background-color: #fabd2f;
+  }
+  
+  @keyframes blink {
+    to {
+      background-color: #26a65b;
+      color: #fb4934;
+    }
+  }
+  
+  #battery {
+    background-color: #98971a;
+    color: #1d2021;
+  }
+  
+  #battery.full {
+    background-color: transparent;
+    color: #b8bb26;
+  }
+  
+  #battery.discharging {
+    color: #1d2021;
+    background-color: #d79921;
+  }
+  
+  #battery.charging {
+    background-color: #98971a;
+    color: #1d2021;
+  }
+  
+  #battery.warning:not(.charging) {
+    background: #cc241d;
+    color: #26a65b;
+    animation-name: blink;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-#battery.warning {
-    color: orange;
-}
-
-#battery.critical {
-    color: red;
-}
-
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
-}
-
-#battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
-}
-
-#cpu.warning {
-    color: orange;
-}
-
-#cpu.critical {
-    color: red;
-}
-
-#memory {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#memory.warning {
-    color: orange;
- }
-
-#memory.critical {
-    color: red;
-    animation-name: blink-critical;
-    animation-duration: 2s;
-    padding-left:5px;
-    padding-right:5px;
-}
-
-#mode {
-    background: @highlight;
-    border-bottom: 3px transparent;
-    color:white;
-    margin-left: 5px;
-    padding: 7px;
-}
-
-#network.disconnected {
-    color: orange;
-}
-
-#pulseaudio {
-    padding-top:6px;
-}
-
-#pulseaudio.muted {
-    color: @highlight;
-}
-
-#temperature.critical {
-    color: red;
-}
-
-#window {
-    font-weight: bold;
-}
-
-#workspaces {
-    font-size:13px;
-}
-
-#workspaces button {
-    border-bottom: 3px solid transparent;
-    margin-bottom: 0px;
-    padding:0px;
-}
-
-#workspaces button.focused {
-    border-bottom: 3px solid  @highlight;
-    margin-bottom: 1px;
-    padding-left:0;
-}
-
-#workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
-}
-
-#custom-power {
-    margin-left:15px;
-    margin-right:15px;
-    font-size:15px;
-}
-
-#custom-launcher {
-    font-size:15px;
-    margin-left:15px;
-    margin-right:10px;
-}
-
-#backlight.icon {
-    padding-right:1px;
-    font-size: 13px;
-}
+  }
+  
+  #custom-dismiss_notifications {
+    border-bottom: 2px solid #cc241d;
+  }
