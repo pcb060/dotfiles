@@ -1,0 +1,57 @@
+#add_newline = false§
+format = """
+[┌](bold green) $time | $username@$hostname: $directory \
+${custom.mzhome}\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$package\
+$cmake\
+$nodejs\
+$python\
+$rust\
+$env_var\
+$status\
+$jobs
+[└─](bold green) $character
+""" 
+
+command_timeout = 200 
+
+[directory]
+truncate_to_repo = false
+format = "[$path]($style)"
+style = "bold cyan"
+
+[character]                           
+success_symbol = "[\\(\\)](bold green)"
+error_symbol = "[\\(\\)](bold red)" 
+format = "$symbol "
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "bold white"
+
+[username]
+show_always = true
+format = "[$user]($style)"
+style_root = "bold bright-yellow"
+style_user = "bright-yellow"
+
+
+[hostname]
+ssh_only = false
+disabled =  false
+format = "[$hostname]($style)"
+style = "green"
+
+[custom.mzhome]
+description = "Show MZ_HOME"
+when = "if [ ${#string} -ge 0 ]; then return 0; else return 1; fi"
+style = "bold inverted blue"
+command = "echo $MZ_HOME | awk -F '/' '{print $NF}'"
+# https://starship.rs/config/#format-strings
+format = '([(\[($output)\])]($style) )'

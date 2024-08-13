@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+source "${HOME}/.zgenom/zgenom.zsh"
+zgenom autoupdate      # automatically update every 7 days 
+# zgenom autoupdate 1  # automatically update every day
+
+if ! zgenom saved; then
+
+  zgenom ohmyzsh
+
+  # classics
+  zgenom load zsh-users/zsh-syntax-highlighting
+  zgenom load zsh-users/zsh-autosuggestions
+  zgenom load zsh-users/zsh-completions
+  
+  # generic
+  zgenom load akash329d/zsh-alias-finder
+  zgenom load ChrisPenner/copy-pasta
+  #zgenom load rtakasuke/zsh-duration
+  zgenom load qoomon/zsh-lazyload
+
+  # git-related
+  zgenom load elstgav/branch-manager
+  zgenom load adolfoabegg/browse-commit
+  zgenom load z-shell/zsh-diff-so-fancy
+  #zgenom load Bhupesh-V/ugit
+
+  #theme
+  zgenom ohmyzsh themes/robbyrussell
+
+  # generate the init script from plugins above
+  zgenom save
+
+fi
