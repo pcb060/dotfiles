@@ -8,6 +8,10 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 ### ZSH OPTIONS END
 
+### DEFAULTS START
+export VISUAL=neovim
+export EDITOR="$VISUAL"
+### DEFAULTS END
 
 ### SHELL UTILS START
 source ~/.zgenomrc 
