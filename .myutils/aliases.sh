@@ -21,6 +21,7 @@
   alias ps="procs" # override
   alias ping="gping" #override
   alias fd="fdfind"
+  alias lg="lazygit"
   alias gogh='bash -c "$(wget -qO- https://git.io/vQgMr)"'
   
 # NAVIGATION #
