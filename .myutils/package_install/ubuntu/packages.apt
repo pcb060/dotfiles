@@ -3,12 +3,12 @@ bat
 bzip2
 curl
 dash
-delta
 duf
 eza
 fd-find
 gcc
 git
+git-delta
 gnome-tweaks
 gping
 grep
