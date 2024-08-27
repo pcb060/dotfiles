@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 
 os_info="/etc/os-release"
-distro_name=$(grep ^NAME= $os_info | cut -d"=" -f2)
-distro_version=$(grep ^VERSION_ID= $os_info | cut -d"=" -f2)
+distro_name=$(grep ^NAME= $os_info | sed "s/\"//g" | cut -d"=" -f2 | tr '[:upper:]' '[:lower:]')
+distro_version=$(grep ^VERSION_ID= $os_info | sed "s/\"//g" | cut -d"=" -f2)
 echo "Yadm bootstrap: $distro_name v$distro_version detected"
 
+cd $HOME/.myutils/package_install/
 ./pkginstaller.sh "$distro_name"
 ./pkginstaller.sh "common"
 
