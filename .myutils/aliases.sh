@@ -22,6 +22,7 @@
   alias ping="gping" #override
   alias fd="fdfind"
   alias lg="lazygit"
+  alias tm="tmux new-session -A -s main"
   alias gogh='bash -c "$(wget -qO- https://git.io/vQgMr)"'
   
 # NAVIGATION #
