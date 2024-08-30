@@ -1,7 +1,6 @@
 #add_newline = false§
 format = """
-[┌](bold green) $time | $username@$hostname: $directory \
-${custom.mzhome}\
+[┌](bold green) $time | $username$hostname: $directory \
 $git_branch\
 $git_commit\
 $git_state\
@@ -43,15 +42,8 @@ style_user = "bright-yellow"
 
 
 [hostname]
-ssh_only = false
+ssh_only = true
 disabled =  false
-format = "[$hostname]($style)"
+format = "@[$hostname]($style)"
 style = "green"
 
-[custom.mzhome]
-description = "Show MZ_HOME"
-when = "if [ ${#string} -ge 0 ]; then return 0; else return 1; fi"
-style = "bold inverted blue"
-command = "echo $MZ_HOME | awk -F '/' '{print $NF}'"
-# https://starship.rs/config/#format-strings
-format = '([(\[($output)\])]($style) )'
