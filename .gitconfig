@@ -1,17 +1,98 @@
 [user]
-	name = Jacopo Giusti
-	email = pcb060@protonmail.com
+    name = Jacopo Giusti
+    email = pcb060@protonmail.com
 
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
 
 [core]
     pager = delta
+    editor = nvim
+
 [interactive]
     diffFilter = delta --color-only
+
 [delta]
-    navigate = true    # use n and N to move between diff sections
+    navigate = true
+
 [merge]
-    conflictstyle = diff3
+    conflictStyle = diff3
+
 [diff]
     colorMoved = default
+
+[color]
+    ui = auto
+
+[init]                
+    defaultBranch = main
+
+[alias]
+    alias = "!git config --get-regexp ^alias\\. | cut -c 7-"
+
+    l = log
+    lf = log --first-parent
+    lp = log --color --pretty=format:'%C(yellow)[ %h ] %Cgreen(%ad) %C(cyan)%an%Creset > %s%C(brightblack)%d' --date=format:'%Y-%m-%d %H:%M:%S'
+    lpg = lp --graph
+    lpf = lp --first-parent
+    ll = !git_log_diff
+
+    s = status
+
+    a = add
+    k = commit
+    km = commit -m
+    kam = commit -am
+    kaa = commit --amend
+
+    b = branch
+    ba = branch -a
+    bd = branch -D
+    bb = !git_branch_blame
+    bm = branch --merged
+    bn = branch --no-merged
+
+    c = checkout
+    cd = checkout develop
+    cm = checkout main
+    cb = checkout -b
+    cs = smart-checkout
+
+    f = fetch
+    p = pull
+    pa = pull --all
+    m = merge
+    mf = merge --ff
+    mnf = merge --no-ff
+    mfo = merge --ff-only
+    ps = push
+    psf = push --force
+    psd = push origin --delete
+    psdf = push origin --delete --force
+    
+    d = diff
+    dn = diff --name-only
+    dns = diff --name-status
+    sh = show
+    shn = show --name-only
+    shns = show --name-status
+
+    sta = stash
+    stal = stash list
+    stas = stash show
+    staa = stash apply
+    stap = stash pop
+
+    ch = cherry-pick
+    chn = cherry-pick -n
+
+    ri = rebase -i
+    rif = !git_fast_interactive_rebase
+
+    re = restore
+    res = restore --staged
+
+    r = reset
+    rs = reset --soft
+    rh = reset --hard
+
