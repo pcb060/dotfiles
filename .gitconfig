@@ -14,9 +14,14 @@
 
 [delta]
     navigate = true
+    side-by-side = true
 
 [merge]
     conflictStyle = diff3
+    ff = false
+
+[pull]
+    ff = only
 
 [diff]
     colorMoved = default
@@ -59,6 +64,8 @@
     cs = smart-checkout
 
     f = fetch
+    fp = fetch --prune
+    fpo = fetch origin --prune
     p = pull
     pa = pull --all
     m = merge
@@ -67,10 +74,12 @@
     mfo = merge --ff-only
     ps = push
     psf = push --force
+    pso = push origin
     psd = push origin --delete
     psdf = push origin --delete --force
     
     d = diff
+    dc = diff --cached
     dn = diff --name-only
     dns = diff --name-status
     sh = show
@@ -96,3 +105,5 @@
     rs = reset --soft
     rh = reset --hard
 
+    getdef = symbolic-ref --short refs/remotes/origin/HEAD
+    setdef = remote set-head origin
