@@ -16,7 +16,7 @@
     alias n="v"
     alias neovim="v"
   alias kbn="killbyname"
-  alias ls="eza" # override
+  alias ls="eza --git" # override
   alias df="duf" # override
   alias ps="procs" # override
   alias ping="gping" #override
