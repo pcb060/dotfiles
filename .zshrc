@@ -44,6 +44,5 @@ done
 ### SOURCING END
 
 ### PATH START
-export JAVA_HOME="/home/jacopo/.jdks/corretto-21.0.6"
-export PATH="$JAVA_HOME/bin:$PATH"
+[ -f /home/$USER/.pathsrc ] && source /home/$USER/.pathsrc
 ### PATH END
