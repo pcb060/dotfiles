@@ -7,10 +7,10 @@
   alias lla="la"
 
 # UTILS #
-  alias cbat="bat --paging=never"
   alias mi="micro"
   alias bat="batcat"
     alias b="bat"
+    alias cbat="bat --paging=never"
   alias r="ranger"
   alias v="nvim"
     alias n="v"
@@ -23,6 +23,8 @@
   alias fd="fdfind"
   alias lg="lazygit"
   alias tm="tmux new-session -A -s main"
+  	alias tmrw="tmux rename-window"
+  alias tally="sort | uniq -c | sort"
   alias gogh='bash -c "$(wget -qO- https://git.io/vQgMr)"'
   
 # NAVIGATION #
