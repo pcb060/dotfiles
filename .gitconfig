@@ -33,14 +33,17 @@
     defaultBranch = main
 
 [alias]
-    alias = "!git config --get-regexp ^alias\\. | cut -c 7-"
+    alias = "!git config --get-regexp ^alias\\. | cut -c 7- | bat -f --style=header,grid,numbers --file-name='git alias'"
 
     l = log
     lf = log --first-parent
     lp = log --color --pretty=format:'%C(yellow)[ %h ] %Cgreen(%ad) %C(cyan)%an%Creset > %s%C(brightblack)%d' --date=format:'%Y-%m-%d %H:%M:%S'
+    lps = lp -5
+    lpm = lp -20
+    lpl = lp -40
     lpg = lp --graph
     lpf = lp --first-parent
-    ll = !git_log_diff
+    ld = "!bash -c 'source ~/.myutils/functions_git.sh && git_log_diff' -"
 
     s = status
 
@@ -53,7 +56,7 @@
     b = branch
     ba = branch -a
     bd = branch -D
-    bb = !git_branch_blame
+    bb = "!bash -c 'source ~/.myutils/functions_git.sh && git_branch_blame' -"
     bm = branch --merged
     bn = branch --no-merged
 
@@ -73,10 +76,10 @@
     mnf = merge --no-ff
     mfo = merge --ff-only
     ps = push
-    psf = push --force
+    psf = push --force-with-lease
     pso = push origin
     psd = push origin --delete
-    psdf = push origin --delete --force
+    psdf = push origin --delete --force--with-lease
     
     d = diff
     dc = diff --cached
@@ -96,7 +99,7 @@
     chn = cherry-pick -n
 
     ri = rebase -i
-    rif = !git_fast_interactive_rebase
+    rif = "!bash -c 'source ~/.myutils/functions_git.sh && git_fast_interactive_rebase' -"
 
     re = restore
     res = restore --staged
@@ -104,6 +107,10 @@
     r = reset
     rs = reset --soft
     rh = reset --hard
+
+    t = tag
+    tl = tag --list
+    td = tag --delete
 
     getdef = symbolic-ref --short refs/remotes/origin/HEAD
     setdef = remote set-head origin
