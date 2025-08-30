@@ -5,6 +5,8 @@
   alias l="ll"
   alias la="ll -a"
   alias lla="la"
+  alias lr="ll -R"
+  alias lt="ll -T"
 
 # UTILS #
   alias mi="micro"
@@ -16,7 +18,7 @@
     alias n="v"
     alias neovim="v"
   alias kbn="killbyname"
-  alias ls="eza --git" # override
+  alias ls="eza --git --icons=always" # override
   alias df="duf" # override
   alias ps="procs" # override
   alias ping="gping" #override
