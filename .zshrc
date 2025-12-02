@@ -41,6 +41,12 @@ source <(fzf --zsh)
 for file in ~/.myutils/*; do
   source "$file"
 done
+
+if [ -d ~/.localutils ]; then
+  for file in ~/.localutils/*; do
+    source "$file"
+  done
+fi
 ### SOURCING END
 
 ### PATH START
