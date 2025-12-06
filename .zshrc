@@ -38,12 +38,15 @@ source <(fzf --zsh)
 
 
 ### SOURCING START
-for file in ~/.myutils/*; do
+MYUTILS=~/.myutils
+LOCALUTILS=~/.localutils
+
+for file in "$MYUTILS"/*; do
   source "$file"
 done
 
-if [ -d ~/.localutils ]; then
-  for file in ~/.localutils/*; do
+if [ -d "$LOCALUTILS" ] && [ -z "$(ls -A "$LOCALUTILS")" ]; then
+  for file in "$LOCALUTILS"/*; do
     source "$file"
   done
 fi
