@@ -14,8 +14,16 @@ setopt share_history
 ### HISTORY OPTIONS END
 
 ### DEFAULTS START
-export VISUAL=neovim
-export EDITOR="$VISUAL"
+if command -v nvim >/dev/null 2>&1; then
+  _editor=nvim
+elif command -v neovim >/dev/null 2>&1; then
+  _editor=neovim
+fi
+
+if [ -n "$_editor" ]; then
+  export EDITOR="$_editor"
+  export VISUAL="$_editor"
+fi
 ### DEFAULTS END
 
 ### SHELL UTILS START
