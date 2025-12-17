@@ -28,6 +28,7 @@
   	alias tmrw="tmux rename-window"
   alias tally="sort | uniq -c | sort"
   alias gogh='bash -c "$(wget -qO- https://git.io/vQgMr)"'
+  alias dvenv="deactivate"
   
 # NAVIGATION #
   alias ..="cd .."
