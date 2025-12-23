@@ -18,7 +18,7 @@
     alias n="v"
     alias neovim="v"
   alias kbn="killbyname"
-  alias ls="eza --git --icons=always" # override
+  alias ls="eza --git --icons=always --smart-group" # override
   alias df="duf" # override
   alias ps="procs" # override
   alias ping="gping" #override
