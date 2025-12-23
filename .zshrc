@@ -53,7 +53,7 @@ for file in "$MYUTILS"/*; do
   source "$file"
 done
 
-if [ -d "$LOCALUTILS" ] && [ -z "$(ls -A "$LOCALUTILS")" ]; then
+if [ -d "$LOCALUTILS" ] && [ -n "$(ls -A "$LOCALUTILS")" ]; then
   for file in "$LOCALUTILS"/*; do
     source "$file"
   done
