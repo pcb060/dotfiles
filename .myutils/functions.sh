@@ -59,14 +59,18 @@ xc() {
   local input
   input=$(cat $1)
   printf "%s" "$input" | xsel --clipboard --input
-  echo "📋 Copied to clipboard: ${input:0:60}$( [ ${#input} -gt 60 ] && echo "…")"
+  local lines=$(wc -l $1 | awk '{print $1}')
+  local chars=$(wc -m $1 | awk '{print $1}')
+  echo "✅ Copied file contents to clipboard. Preview:"
+  echo "${input:0:100}$( [ ${#input} -gt 100 ] && echo "…")" | bat --file-name="$1" --style=grid
+  echo "Total: $lines lines, $chars characters."
 }
 
 # xsel implementation
 xcf() {
   if [[ -f "$1" ]]; then
     xsel --clipboard --input < "$1"
-    pGreen "📋 Copied file to clipboard: $1"
+    pGreen "✅ Copied file to clipboard: $1"
   else
     pRed "❌ File not found: $1"
   fi
