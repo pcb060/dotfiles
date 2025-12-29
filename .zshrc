@@ -49,15 +49,13 @@ source <(fzf --zsh)
 MYUTILS=~/.myutils
 LOCALUTILS=~/.localutils
 
-for file in "$MYUTILS"/*; do
-  source "$file"
+for file in "$MYUTILS"/*(N); do
+    source "$file"
 done
 
-if [ -d "$LOCALUTILS" ] && [ -n "$(ls -A "$LOCALUTILS")" ]; then
-  for file in "$LOCALUTILS"/*; do
+for file in "$LOCALUTILS"/*(N); do
     source "$file"
-  done
-fi
+done
 ### SOURCING END
 
 ### PATH START
