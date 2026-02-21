@@ -7,6 +7,7 @@
   alias lla="la"
   alias lr="ll -R"
   alias lt="ll -T"
+  alias lT="ll --total-size"
 
 # UTILS #
   alias mi="micro"
@@ -18,7 +19,7 @@
     alias n="v"
     alias neovim="v"
   alias kbn="killbyname"
-  alias ls="eza --git --icons=always --smart-group --total-size" # override
+  alias ls="eza --git --icons=always --smart-group" # override
   alias df="duf" # override
   alias ps="procs" # override
   alias ping="gping" #override
