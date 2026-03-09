@@ -150,10 +150,6 @@ ignore() {
 
 # Execute command on all directories at current position
 fad() {
-  local script_path="$(readlink -f "${BASH_SOURCE[0]}")"
-  local script_dir="$(dirname "$script_path")"
-  source "$script_dir/../utils/colors"
-  
   local comm; comm="$@"
   
   for dir in */; do
