@@ -34,14 +34,14 @@ source ~/.zgenomrc
 eval "$(starship init zsh)"
 export STARSHIP_LOG=error
 
-# autojump
-[ -f /usr/share/autojump/autojump.sh ] && source /usr/share/autojump/autojump.sh
-
 # fzf
 if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}/opt/fzf/bin"
 fi
 source <(fzf --zsh)
+
+# zoxide (autojump)
+[ -f /usr/bin/zoxide ] && eval "$(zoxide init zsh)"
 ### SHELL UTILS END
 
 
