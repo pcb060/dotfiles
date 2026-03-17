@@ -33,7 +33,7 @@
     defaultBranch = main
 
 [alias]
-    alias = "!git config --get-regexp ^alias\\. | cut -c 7- | bat -f --style=header,grid,numbers --file-name='git alias'"
+    alias = "!git config --get-regexp ^alias\\. | cut -c 7- | bat -f --style=header,grid --file-name='git alias'"
 
     l = log
     lf = log --first-parent
@@ -48,6 +48,7 @@
     s = status
 
     a = add
+    ap = add -p
     k = commit
     km = commit -m
     kam = commit -am
@@ -83,6 +84,7 @@
     
     d = diff
     dc = diff --cached
+    ds = diff --staged
     dn = diff --name-only
     dns = diff --name-status
     sh = show
