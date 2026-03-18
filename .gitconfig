@@ -60,6 +60,7 @@
     bb = "!bash -c 'source ~/.myutils/functions_git.sh && git_branch_blame' -"
     bm = branch --merged
     bn = branch --no-merged
+    bsc = branch --show-current
 
     c = checkout
     cd = checkout develop
