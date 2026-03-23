@@ -8,10 +8,5 @@ return {
       transparent_background = true,
       default_integrations = true,
     },
-    config = function(_, opts)
-      require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin")
-    end,
   }
 }
-
