@@ -131,7 +131,7 @@ ignore() {
   check_cert_param=""
   lang=""
   if [ "$#" -eq 2 ]; then
-    if [ "$1" == "-i" ]; then
+    if [ "$1" = "-i" ]; then
       check_cert_param="--no-check-certificate"
       lang="$2"
     else
@@ -179,7 +179,7 @@ script() {
 
   # Handle arguments
   if [ "$#" -eq 2 ]; then
-      if [ "$1" == "-x" ]; then
+      if [ "$1" = "-x" ]; then
           make_executable=true
           filename="$2"
       else
