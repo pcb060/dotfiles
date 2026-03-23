@@ -103,7 +103,7 @@ hrs() {
     echo "Usage: hrs [options] <file>"
     echo "Options:"
     echo "  -h, --help  Display this help message"
-    exit 1
+    return 1
   }
 
   if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
@@ -117,7 +117,7 @@ hrs() {
 ignore() {
   usage() {
     echo "Usage: ignore [-i] language"
-    exit 1
+    return 1
   }
 
   if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
@@ -165,7 +165,7 @@ script() {
     echo "Usage: script [-x] <filename>"
     echo "Options:"
     echo "  -x  Make file executable"
-    exit 1
+    return 1
   }
 
   # Check if the user provided a filename and optional -x flag
@@ -219,7 +219,7 @@ yadm-force-add() {
       echo "Run from the conflicted .git repo base dir."
       echo "(I'm looking for a .git/ dir.)"
       echo
-      exit 1
+      return 1
   fi
 
   tmpdir=/tmp/tmp.git
@@ -229,7 +229,7 @@ yadm-force-add() {
       echo "Yo the temp dir already exists. Did I crash?"
       echo "Please reconcile: $tmpdir"
       echo
-      exit 1
+      return 1
   fi
 
   # Git is just files.
