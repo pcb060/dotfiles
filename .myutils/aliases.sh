@@ -27,7 +27,6 @@ alias kbn="killbyname"
 alias ls="eza --git --icons=always --smart-group" # override
 alias df="duf" # override
 alias ps="procs" # override
-alias ping="gping" #override
 alias fd="fdfind"
 alias lg="lazygit"
 alias tm="tmux new-session -A -s main"
