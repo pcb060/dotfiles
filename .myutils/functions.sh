@@ -84,7 +84,7 @@ venv() {
     read -r "?Virtual environment not found. Create one in '$venv_dir'? (y/n): " choice
     # Assumes empty choice is a no
     if [[ "$choice" =~ ^[Yy]$ ]]; then
-      python3 -m venv "$venv_dir"
+      python3 -m venv "$venv_dir" --prompt "${PWD##*/}"
       pGreen "Virtual environment created in '$venv_dir'."
     else
       pRed "Aborting. Virtual environment not created."
