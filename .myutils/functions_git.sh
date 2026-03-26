@@ -3,7 +3,7 @@
 function git_log_diff() {
 	target_branch=$1
 	local_branch=$(git rev-parse --abbrev-ref HEAD)
-	glp $target_branch..$local_branch
+	git lp $target_branch..$local_branch
 }
 
 function git_branch_blame() {
@@ -12,5 +12,5 @@ function git_branch_blame() {
 
 function git_fast_interactive_rebase() {
 	to_rebase=$1
-	gri HEAD~$1
+	git ri HEAD~$1
 }
