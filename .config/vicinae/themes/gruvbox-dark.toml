@@ -1,0 +1,63 @@
+[meta]
+version = 1
+name = "Gruvbox Dark"
+description = "Gruvbox Dark palette for Vicinae"
+variant = "dark"
+inherits = "vicinae-dark"
+
+[colors.core]
+accent             = "#d79921"   # yellow
+accent_foreground  = "#282828"   # bg  - dark text on yellow
+background         = "#282828"   # bg
+foreground         = "#ebdbb2"   # fg
+secondary_background = "#3c3836" # bg1
+border             = "#504945"   # bg2
+
+[colors.accents]
+blue    = "#458588"
+green   = "#98971a"
+magenta = "#b16286"
+orange  = "#d65d0e"
+red     = "#cc241d"
+yellow  = "#d79921"
+cyan    = "#689d6a"
+purple  = "#b16286"
+
+[colors.text]
+default     = "#ebdbb2"   # fg
+muted       = "#bdae93"   # fg2
+danger      = "#cc241d"   # red
+success     = "#98971a"   # green
+placeholder = "#928374"   # gray
+selection   = { background = "#d79921", foreground = "#282828" }
+
+[colors.text.links]
+default = "#458588"   # blue
+visited = "#b16286"   # purple
+
+[colors.input]
+border       = "#504945"   # bg2
+border_focus = "#d79921"   # yellow
+border_error = "#cc241d"   # red
+
+[colors.list.item.hover]
+foreground           = "#fbf1c7"   # fg0
+secondary_foreground = "#bdae93"   # fg2
+
+[colors.list.item.selection]
+background           = "#504945"   # bg2
+foreground           = "#fbf1c7"   # fg0
+secondary_background = "#504945"   # bg2
+secondary_foreground = "#d79921"   # yellow - accent on selected subtitle
+
+[colors.grid.item]
+background = "#3c3836"             # bg1
+hover      = { outline = "#d79921" }
+selection  = { outline = "#d79921" }
+
+[colors.scrollbars]
+background = "#3c3836"   # bg1
+
+[colors.loading]
+bar     = "#d79921"   # yellow
+spinner = "#d79921"

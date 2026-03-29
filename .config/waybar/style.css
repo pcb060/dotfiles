@@ -17,7 +17,7 @@
 
 window#waybar {
     font-family: "FiraCode Nerd Font";
-    font-size: 12px;
+    font-size: 13px;
     border-radius: 12px;
     background-color: @bg;
     color: @fg;
@@ -27,44 +27,64 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+/* ── Modules ───────────────────────────────────────────────── */
+
+.modules-left {
+    padding: 0 10px;
+    border-radius: 12px;
+    background-color: @bg1;
+}
+
+.modules-center {
+    background-color: @green;
+    color: @bg;
+    padding: 0 14px;
+    border-radius: 12px;
+}
+
+.modules-right {
+    padding: 0 10px;
+    border-radius: 12px;
+    background-color: @bg1;
+}
+
 /* ── Workspaces ────────────────────────────────────────────── */
 
 #workspaces button {
-    padding: 0 6px;
-    background-color: @bg1;
+    padding: 0 7px;
     color: @fg2;
+    border-radius: 0;
     border-bottom: 2px solid transparent;
 }
 
 #workspaces button:hover {
-    background-color: @bg2;
     color: @fg;
-    border-bottom: 2px solid @yellow;
+    border: 0;
+    border-top: 2px solid @yellow;
 }
 
 #workspaces button.active {
     background-color: @bg2;
     color: @yellow;
     border-bottom: 2px solid @yellow;
+    font-weight: 800;
 }
 
 #workspaces button.urgent {
-    background-color: @red;
-    color: @fg;
+    background-color: @orange;
+    color: @bg;
 }
 
 /* ── Window title ──────────────────────────────────────────── */
 
 #window {
-    color: @fg2;
-    padding: 0 10px;
+    font-size: 12px;
 }
 
 /* ── Clock ─────────────────────────────────────────────────── */
 
 #clock {
     color: @green;
-    padding: 0 12px;
     font-weight: bold;
 }
 
@@ -72,12 +92,10 @@ window#waybar.hidden {
 
 #cpu {
     color: @blue;
-    padding: 0 10px;
 }
 
 #memory {
     color: @aqua;
-    padding: 0 10px;
 }
 
 #cpu.warning,
@@ -94,14 +112,12 @@ window#waybar.hidden {
 
 #disk {
     color: @fg2;
-    padding: 0 10px;
 }
 
 /* ── Network ───────────────────────────────────────────────── */
 
 #network {
     color: @blue;
-    padding: 0 10px;
 }
 
 #network.disconnected {
@@ -112,7 +128,6 @@ window#waybar.hidden {
 
 #bluetooth {
     color: @blue;
-    padding: 0 10px;
 }
 
 #bluetooth.disabled {
@@ -124,7 +139,6 @@ window#waybar.hidden {
 #pulseaudio,
 #wireplumber {
     color: @purple;
-    padding: 0 10px;
 }
 
 #pulseaudio.muted,
@@ -136,7 +150,6 @@ window#waybar.hidden {
 
 #battery {
     color: @green;
-    padding: 0 10px;
 }
 
 #battery.warning {
@@ -159,14 +172,12 @@ window#waybar.hidden {
 
 #backlight {
     color: @yellow;
-    padding: 0 10px;
 }
 
 /* ── Temperature ───────────────────────────────────────────── */
 
 #temperature {
     color: @fg2;
-    padding: 0 10px;
 }
 
 #temperature.critical {
@@ -177,7 +188,6 @@ window#waybar.hidden {
 
 #idle_inhibitor {
     color: @gray;
-    padding: 0 10px;
 }
 
 #idle_inhibitor.activated {
@@ -187,7 +197,6 @@ window#waybar.hidden {
 /* ── Tray ───────────────────────────────────────────────────── */
 
 #tray {
-    padding: 0 8px;
 }
 
 #tray > .passive {
@@ -196,12 +205,5 @@ window#waybar.hidden {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: @red;
-}
-
-/* ── Custom modules ─────────────────────────────────────────── */
-
-#custom-separator {
-    color: @bg3;
-    padding: 0 4px;
+    background-color: @orange;
 }

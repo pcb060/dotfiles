@@ -1,7 +1,7 @@
 {
   "layer": "top",
-  "height": 20,
-  "spacing": 2,
+  "height": 24,
+  "spacing": 18,
   "margin": 4,
   "reload_style_on_change": true,
 
@@ -26,7 +26,7 @@
   ],
 
   "hyprland/window": {
-    "max-length": 75,
+    "max-length": 50,
     "rewrite": {
       "sidebery(.*)": "$1"
     }
@@ -90,7 +90,7 @@
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon}",
+    "format": "{icon} {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "tooltip": true,
     "tooltip-format": "Brightness: {percent}%",
