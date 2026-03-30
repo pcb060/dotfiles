@@ -14,5 +14,13 @@
       "dark": {
          "name": "gruvbox-dark"
       }
+   },
+   "providers": {
+      "applications": {
+         "preferences": {
+            "defaultAction": "focus",
+            "launchPrefix": "hyprctl dispatch exec --"
+         }
+      }
    }
 }
