@@ -135,7 +135,7 @@ ignore() {
       check_cert_param="--no-check-certificate"
       lang="$2"
     else
-      echo "Invalid option: $1" 
+      echo "Invalid option: $1"
       usage
     fi
   else
@@ -151,7 +151,7 @@ ignore() {
 # Execute command on all directories at current position
 fad() {
   local comm; comm="$@"
-  
+
   for dir in */; do
     [ -d "$dir" ] || continue
     printf "%bExecuting %b\"%s\"%b in directory %b%s%b\n" "$cYELLOW" "$cCYAN" "$comm" "$cYELLOW" "$cBLUE" "${dir//\//}" "$cRESET"
@@ -259,3 +259,36 @@ yadm-force-add() {
   yadm status
 }
 
+sysupgrade() {
+    local id_like assume_yes=0
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -y) assume_yes=1 ;;
+            *)  pRed "sysupgrade: unknown option: '$1'" >&2; return 1 ;;
+        esac
+        shift
+    done
+
+    id_like=$(grep -i '^ID_LIKE=' /etc/os-release 2>/dev/null | cut -d= -f2 | tr -d '"')
+    if [[ -z "$id_like" ]]; then
+        id_like=$(grep -i '^ID=' /etc/os-release 2>/dev/null | cut -d= -f2 | tr -d '"')
+    fi
+
+    case "$id_like" in
+        *debian*|*ubuntu*)
+            local apt_args=()
+            [[ $assume_yes -eq 1 ]] && apt_args+=(-y)
+            sudo apt update "${apt_args[@]}" && sudo apt upgrade "${apt_args[@]}"
+            ;;
+        *arch*)
+            local pacman_args=()
+            [[ $assume_yes -eq 1 ]] && pacman_args+=(--noconfirm)
+            sudo pacman -Syu "${pacman_args[@]}"
+            ;;
+        *)
+            pRed "sysupgrade: unrecognized distro family: '${id_like}'" >&2
+            return 1
+            ;;
+    esac
+}
