@@ -28,6 +28,7 @@ alias ls="eza --git --icons=always --smart-group" # override
 alias df="duf" # override
 alias ps="procs" # override
 alias fd="fdfind"
+alias ddff="delta --diff-so-fancy"
 alias lg="lazygit"
 alias tm="tmux new-session -A -s main"
   alias tmrw="tmux rename-window"
