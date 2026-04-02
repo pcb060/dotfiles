@@ -2,9 +2,11 @@
 
 # GENERAL #
 alias clc="clear"
-alias l="ll"
-alias la="ll -a"
-alias lla="la"
+alias ls="eza --git --icons=always --smart-group" # override
+alias ll="ls -l"
+  alias l="ll"
+  alias la="ll -a"
+  alias lla="la"
 alias lr="ll -R"
   alias lr2="lr -L2"
   alias lr3="lr -L3"
@@ -24,7 +26,6 @@ alias v="nvim"
   alias n="v"
   alias neovim="v"
 alias kbn="killbyname"
-alias ls="eza --git --icons=always --smart-group" # override
 alias df="duf" # override
 alias ps="procs" # override
 alias fd="fdfind"
@@ -37,7 +38,7 @@ alias gogh='bash -c "$(wget -qO- https://git.io/vQgMr)"'
 alias dvenv="deactivate"
 alias syu="sysupgrade"
 alias syuy="sysupgrade -y"
-  
+
 # NAVIGATION #
 alias ..="cd .."
 alias ...="cd ../.."
@@ -55,4 +56,3 @@ alias dcu="docker-compose up"
 # K8S #
 alias k3stop="sudo systemctl stop k3s"
 alias k3start="sudo systemctl start k3s"
-
