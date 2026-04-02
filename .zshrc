@@ -44,6 +44,11 @@ source <(fzf --zsh)
 [ -f /usr/bin/zoxide ] && eval "$(zoxide init zsh)"
 ### SHELL UTILS END
 
+### JUJUTSU START
+autoload -U compinit && compinit
+source <(jj util completion zsh)
+### JUJUTSU END
+
 
 ### SOURCING START
 MYUTILS=~/.myutils
