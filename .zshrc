@@ -45,8 +45,10 @@ source <(fzf --zsh)
 ### SHELL UTILS END
 
 ### JUJUTSU START
-autoload -U compinit && compinit
-source <(jj util completion zsh)
+if [ -f $(which jj) ]; then
+  autoload -U compinit && compinit
+  source <(jj util completion zsh)
+fi
 ### JUJUTSU END
 
 
