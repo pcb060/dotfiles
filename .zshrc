@@ -45,7 +45,7 @@ source <(fzf --zsh)
 ### SHELL UTILS END
 
 ### JUJUTSU START
-if [ -f $(which jj) ]; then
+if command -v jj &>/dev/null; then
   autoload -U compinit && compinit
   source <(jj util completion zsh)
 fi
