@@ -11,6 +11,7 @@ $cmake\
 $nodejs\
 $python\
 $rust\
+$golang\
 $env_var\
 $status\
 $jobs
