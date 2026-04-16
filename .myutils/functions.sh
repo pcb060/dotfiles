@@ -292,3 +292,8 @@ sysupgrade() {
             ;;
     esac
 }
+
+inohup() {
+  eval "nohup $* >/dev/null 2>&1 &"
+}
+
