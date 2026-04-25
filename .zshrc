@@ -24,6 +24,8 @@ if [ -n "$_editor" ]; then
   export EDITOR="$_editor"
   export VISUAL="$_editor"
 fi
+
+export GOPATH=~/.go
 ### DEFAULTS END
 
 ### SHELL UTILS START
