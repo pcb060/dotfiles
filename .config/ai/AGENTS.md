@@ -59,3 +59,12 @@ Where:
 
 Example:
     Assisted-by: opencode:kimi-k2.6
+
+## Dependencies
+
+- Prefer the standard library or built-ins. Do not add a dependency for trivial functionality.
+- Do not reinvent the wheel, but also do not pull in a package for what amounts to a one-liner.
+- Before adding any dependency, verify its source repository is actively maintained.
+- Do not use unmaintained or deprecated packages.
+- Do not use bleeding-edge or pre-release versions unless explicitly required.
+- Niche or less-common dependencies are acceptable for personal or casual projects, but they MUST still be actively maintained. Security-critical dependencies require extra scrutiny regardless of project scope.
