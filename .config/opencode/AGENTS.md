@@ -1,0 +1,1 @@
+/home/jacopo/.config/ai/AGENTS.md
