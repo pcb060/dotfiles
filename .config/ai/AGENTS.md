@@ -48,6 +48,8 @@ This directory (`~/.config/ai/`) is the single source of truth for all AI assist
 
 Before writing a commit message, inspect the repository's existing commit history. If an established style is present, follow it. If no style is established, default to Conventional Commits without scope. Scope MUST only be included if the repository already uses it consistently.
 
+Before committing, present the user with 1–3 pre-written commit message options in a multi-choice form. The user may select one or propose their own. Do not commit until the user confirms the message.
+
 Every commit that incorporates AI-generated changes MUST include an `Assisted-by` trailer in the following format:
 
     Assisted-by: AGENT_NAME:MODEL_VERSION [TOOL1] [TOOL2]
