@@ -99,6 +99,7 @@ Interpret user requests and translate to commands:
 - Hooks are disabled in user's config
 - Default priority is M (medium)
 - Week starts on Monday
+- **Work week context**: For tasks tagged `+work`, interpret "this week" or "next week" as Monday-Friday only (workdays), not Monday-Sunday. Use `eow` for calendar week end, `eow - 2d` for Friday end of work week.
 - Task data location: `$HOME/.task`
 - Timewarrior data location: `$HOME/.local/share/timewarrior`
 
