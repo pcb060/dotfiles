@@ -12,6 +12,10 @@ This directory (`~/.config/ai/`) is the single source of truth for all AI assist
   instructions/          → ~/.config/Code - Insiders/User/settings.json (path reference)
 ```
 
+**Note:** Use `$HOME` or `$USER` variables in paths rather than hardcoded usernames.
+
+## Rules
+
 ## Rules
 
 1. **Keep both tools in sync.**
@@ -24,6 +28,7 @@ This directory (`~/.config/ai/`) is the single source of truth for all AI assist
    - If a new top-level directory is created in `~/.config/ai/` and is meant for OpenCode, create the corresponding symlink in `~/.config/opencode/` immediately.
    - If a directory is removed from `~/.config/ai/`, remove the broken symlink in `~/.config/opencode/` immediately.
    - If a file is moved or renamed in `~/.config/ai/`, update or recreate the symlink in `~/.config/opencode/` immediately.
+   - **Always use relative paths for symlinks** (e.g., `../ai/agents` not `/home/username/.config/ai/agents`) to ensure dotfiles work across machines with different usernames.
 
 3. **Keep VS Code settings accurate.**
    - If a path referenced in `settings.json` changes, you MUST update the corresponding `chat.*Locations` entry immediately.
