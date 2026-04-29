@@ -38,6 +38,12 @@ alias gogh='bash -c "$(wget -qO- https://git.io/vQgMr)"'
 alias dvenv="deactivate"
 alias syu="sysupgrade"
 alias syuy="sysupgrade -y"
+alias tw="task"
+  alias twa="task add"
+  alias twdo="task done"
+  alias twde="task delete"
+  alias twm="task modify"
+  alias twui="taskwarrior-tui"
 
 # NAVIGATION #
 alias ..="cd .."
@@ -56,3 +62,4 @@ alias dcu="docker-compose up"
 # K8S #
 alias k3stop="sudo systemctl stop k3s"
 alias k3start="sudo systemctl start k3s"
+
