@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Wrapper around brightnessctl enforcing a minimum brightness percentage.
+
+MIN_PCT=5
+
+case "$1" in
+  set)
+    max=$(brightnessctl max)
+    min_abs=$(( max * MIN_PCT / 100 ))
+    target=$(brightnessctl -mp set "$2" | cut -d',' -f3)
+
+    if [[ "$target" -lt "$min_abs" ]]; then
+      target=$min_abs
+    fi
+
+    brightnessctl set "${target}"
+    ;;
+  *)
+    brightnessctl "$@"
+    ;;
+esac

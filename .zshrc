@@ -26,6 +26,10 @@ if [ -n "$_editor" ]; then
 fi
 
 export GOPATH="$HOME/.go"
+
+if [[ ! "$PATH" == *$HOME/.local/bin* ]]; then
+  PATH="${PATH:+${PATH}:}$HOME/.local/bin"
+fi
 ### DEFAULTS END
 
 ### SHELL UTILS START
