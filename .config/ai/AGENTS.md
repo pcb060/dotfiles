@@ -35,6 +35,19 @@ Where:
 Example:
     Assisted-by: opencode:kimi-k2.6
 
+## Language
+
+When working with Git repositories, GitLab/GitHub projects, or any collaborative codebase:
+
+- **Adapt to the repository's language.** Match the language used in existing issues, merge requests, documentation, and code comments.
+- **Default to English when mixed.** If a project uses multiple languages inconsistently, default to English.
+- **Apply consistently across:**
+  - Issue descriptions and comments
+  - Merge/pull request titles and descriptions
+  - Commit messages (unless the repository has an established style in another language)
+  - Documentation files (README, CONTRIBUTING, etc.)
+  - Code comments and inline documentation
+
 ## Dependencies
 
 - Prefer the standard library or built-ins. Do not add a dependency for trivial functionality.
