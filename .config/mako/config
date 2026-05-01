@@ -1,0 +1,51 @@
+# Mako notification daemon configuration
+# Themed for Gruvbox Material Dark (Hyprland)
+
+# === Appearance ===
+font=FiraCode Nerd Font 10
+background-color=#282828
+ text-color=#d4be98
+border-color=#7c6f64
+progress-color=over #a9b665
+
+border-size=2
+border-radius=8
+padding=12
+margin=10
+width=300
+height=150
+
+icon-path=/usr/share/icons/hicolor
+max-icon-size=48
+icons=1
+
+# === Behavior ===
+default-timeout=5000
+ignore-timeout=0
+layer=overlay
+anchor=top-right
+
+max-visible=5
+history=true
+
+# === Actions ===
+actions=1
+on-button-left=dismiss
+on-button-middle=none
+on-button-right=dismiss-all
+on-touch=dismiss
+
+# === Categories / Urgency Overrides ===
+[urgency=low]
+border-color=#7c6f64
+default-timeout=4000
+
+[urgency=normal]
+border-color=#7c6f64
+default-timeout=5000
+
+[urgency=critical]
+border-color=#ea6962
+background-color=#1d2021
+text-color=#d4be98
+default-timeout=0
