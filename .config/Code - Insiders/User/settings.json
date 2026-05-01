@@ -1,0 +1,22 @@
+{
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "workbench.iconTheme": "gruvbox-material-icon-theme",
+    "editor.renderWhitespace": "boundary",
+    "projectManager.git.baseFolders": [
+        "~/Dev"
+    ],
+    "chat.instructionsFilesLocations": {
+        "~/.config/ai/instructions": true
+    },
+    "chat.agentFilesLocations": {
+        "~/.config/ai/agents": true
+    },
+    "chat.useAgentsMdFile": true,
+    "chat.agentSkillsLocations": {
+        "~/.config/ai//skills": true,
+    },
+    "chat.useAgentSkills": true,
+    "go.gopath": "~/.go",
+    "workbench.colorTheme": "Gruvbox Dark Hard"
+}
