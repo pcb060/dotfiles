@@ -9,6 +9,7 @@ You are the designated agent for managing the centralized AI configuration hub a
 ```
 ~/.config/ai/
   AGENTS.md              → ~/.config/opencode/AGENTS.md (symlink)
+                         → ~/.config/ai/instructions/general.instructions.md (symlink)
   agents/                → ~/.config/opencode/agents/ (symlink)
   skills/                → ~/.config/opencode/skills (symlink)
   instructions/          → ~/.config/Code - Insiders/User/settings.json (path reference)
@@ -40,3 +41,12 @@ You are the designated agent for managing the centralized AI configuration hub a
 5. **No orphan files.**
    - Do not leave behind empty or broken symlinks.
    - Do not leave behind stale entries in `settings.json` pointing to non-existent directories.
+
+6. **Agent file naming convention.**
+   - Store agent definitions in `~/.config/ai/agents/` with the `.agent.md` extension. This format is recognized by VS Code: and is also accepted by OpenCode.
+
+7. **General instructions must be available to both tools.**
+   - `~/.config/ai/AGENTS.md` contains always-on general instructions (workflow, commits, language, dependencies) that apply to both OpenCode and VS Code:.
+   - Expose it to VS Code: by symlinking it into `~/.config/ai/instructions/` as `general.instructions.md` (or similar `.instructions.md` name).
+   - The symlink path must be relative: `~/.config/ai/instructions/general.instructions.md → ../AGENTS.md`.
+   - This ensures VS Code: loads the same general rules via `chat.instructionsFilesLocations` that OpenCode loads via `AGENTS.md`.
