@@ -17,7 +17,7 @@
   "modules-right": [
     "cpu",
     "memory",
-    "network",
+    /*"network",*/
     "pulseaudio",
     "battery",
     "backlight",
