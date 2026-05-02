@@ -7,14 +7,14 @@
         "~/Dev"
     ],
     "chat.instructionsFilesLocations": {
-        "~/.config/ai/instructions": true
+        "~/.config/ai/vscode/instructions": true
     },
     "chat.agentFilesLocations": {
-        "~/.config/ai/agents": true
+        "~/.config/ai/vscode/agents": true
     },
     "chat.useAgentsMdFile": true,
     "chat.agentSkillsLocations": {
-        "~/.config/ai//skills": true,
+        "~/.config/ai/vscode/skills": true
     },
     "chat.useAgentSkills": true,
     "go.gopath": "~/.go",

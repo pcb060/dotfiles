@@ -1,0 +1,1 @@
+../../agents/ai-hub-maintainer.md
