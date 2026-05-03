@@ -19,8 +19,8 @@
     "memory",
     /*"network",*/
     "pulseaudio",
-    "battery",
     "backlight",
+    "battery",
     "clock",
     "tray"
   ],
