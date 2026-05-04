@@ -130,7 +130,7 @@ ensure_symlink "${OPENCODE_DIR}/skills" "../ai/skills"
 # VS Code: consumes from ~/.config/ai/vscode/:
 #   instructions/general.instructions.md -> ../../AGENTS.md
 #   agents/*.agent.md -> ../../agents/*.md
-#   skills/<skill-name>/SKILL.md -> ../../skills/<skill-name>.md
+#   skills/<skill-name>/SKILL.md -> ../../../skills/<skill-name>.md
 # ------------------------------------------------------------------------------
 
 log "Syncing VS Code: consumable directory..."
@@ -175,7 +175,7 @@ if [[ -d "${HUB_DIR}/skills" ]]; then
         skill_name="$(basename "$src_file" .md)"
         skill_dir="${VSCODE_DIR}/skills/${skill_name}"
         skill_link="${skill_dir}/SKILL.md"
-        rel_target="../../skills/${skill_name}.md"
+        rel_target="../../../skills/${skill_name}.md"
         EXPECTED_SKILL_DIRS["$skill_name"]=1
         mkdir -p "$skill_dir"
         ensure_symlink "$skill_link" "$rel_target"

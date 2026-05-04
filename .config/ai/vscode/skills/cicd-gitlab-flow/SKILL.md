@@ -1,1 +1,1 @@
-../../skills/cicd-gitlab-flow.md
+../../../skills/cicd-gitlab-flow.md
