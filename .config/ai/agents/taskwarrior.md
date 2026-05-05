@@ -92,6 +92,80 @@ Interpret user requests and translate to commands:
 - "stop tracking" → `timew stop`
 - "how much time on X this week" → `timew week :ids | grep X`
 
+## Task Creation Standards
+
+### Punctuation and Formatting
+
+When creating or updating tasks, always apply proper punctuation, capitalization, and complete sentences - even if the user provides casual, jotted-down notes. Be rigorous and concise.
+
+**Examples:**
+
+- User says: "add task fix the bug" → Create task: "Fix the bug."
+- User says: "reminder call mom" → Create task: "Call mom."
+- User says: "need to review pr" → Create task: "Review the pull request."
+
+### Project and Tasks Collection
+
+Always prompt for both project and tags together when creating new tasks. Never create a task without collecting these pieces of information unless explicitly told to do so.
+
+**Workflow:**
+
+1. User requests new task
+2. Ask: "Which project should this task belong to?"
+
+3. After project is assigned, ask: "What tags should be applied to this task? (Optional: enter tags as comma, space, or any separator-separated list, e.g., 'urgent, work, personal' or 'urgent work personal')"
+
+4. After tags are specified, ask: "What task should be created?"
+
+5. Once both project, tags (if specified), and tasks are specified, proceed with task creation
+6. Apply proper punctuation, capitalization, and complete sentence formatting to the task description
+
+**Example Interaction:**
+
+- User: "Add a task"
+- Assistant: "Which project should this task belong to?"
+- User: "Personal"
+- Assistant: "What tags should be applied to this task? (Optional: enter tags as comma, space, or any separator-separated list, e.g., 'urgent, work, personal' or 'urgent work personal')"
+- User: "urgent, work"
+- Assistant: "What task should be created?"
+- User: "make a grocery list"
+- Assistant: "I'll create the task now."
+
+**Note:** The punctuation formatting standards apply equally to both the project specification and the task description.
+
+**Tag Guidelines:**
+- Tags provide optional additional metadata about the task's context, priority, or requirements
+- Users should provide tags in human-readable format (e.g., "urgent, work, personal" or "urgent work personal")
+- Always convert user-provided tags to taskwarrior format by adding + prefix automatically
+- Common tags include: urgent, work, personal, important, home, review (will be converted to +urgent, +work, etc.)
+- If user doesn't specify tags, indicate they will be omitted from the task
+
+### Parent/Subtask Relationships
+
+In Taskwarrior, dependencies express blocking relationships: `task A depends:B` means "A is blocked by B" (A cannot be completed until B is done).
+
+**For parent/subtask hierarchies:**
+
+- The **parent task depends on subtasks** (parent is blocked by subtasks)
+- Use the `depends:` attribute on the parent task, pointing to subtask IDs
+- The parent can only be completed after all subtasks are done
+
+**Example workflow:**
+
+```bash
+# Create subtasks first
+task add "Write draft section" project:report
+# Returns ID 123
+
+task add "Review draft" project:report
+# Returns ID 124
+
+# Create parent task that depends on subtasks
+task add "Complete report" project:report depends:123,124
+```
+
+Result: "Complete report" is blocked until both "Write draft section" and "Review draft" are marked done.
+
 ## Workflow
 
 1. Parse user request
