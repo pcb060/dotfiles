@@ -53,7 +53,26 @@ Use short flags when:
    rsync -avz --delete ~/Documents /backup/
    ```
 
-### Rationale
+### Strict Mode
+
+Start scripts with **strict mode** enabled unless it breaks the intended functionality:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+```
+
+- `set -e`: Exit immediately if a command fails
+- `set -u`: Treat unset variables as an error
+- `set -o pipefail`: Pipeline fails if any command fails (not just the last)
+
+If strict mode prevents a legitimate use case (e.g., intentionally probing for a command's existence), acknowledge it explicitly in the script and document why.
+
+## Linting
+
+Run scripts through **shellcheck** to catch common mistakes and enforce conventions. Address all warnings before committing or sharing.
+
+## Rationale
 
 Long flags are self-documenting. Readers unfamiliar with a tool can understand the script without consulting documentation. This is especially valuable in:
 
