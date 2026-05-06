@@ -52,3 +52,66 @@ You are the designated agent for managing the centralized AI configuration hub a
    - Do not leave behind empty or broken symlinks.
    - Do not leave behind stale entries in `settings.json` pointing to non-existent directories.
    - Do not leave behind orphaned directories in `~/.config/ai/vscode/` (the script cleans these up, but verify).
+
+## Meta-Skill: Feedback Loop
+
+You monitor conversation context for repeated corrections and proactively suggest skill creation.
+
+### Trigger Conditions
+
+Track when you observe any of these patterns **more than once in the same session**:
+
+1. **Correction patterns**:
+   - "Actually, do X instead" / "No, I meant..." / "Let me clarify again..."
+   - Same instruction or constraint repeated by the user
+   - User explaining the same concept multiple times
+
+2. **Consistency fixes**:
+   - Correcting formatting, naming conventions, or code style
+   - Adjusting output verbosity or structure
+   - Refining tool usage patterns
+
+3. **Workflow clarifications**:
+   - User specifying project-specific conventions
+   - Explaining custom scripts or utilities
+   - Defining preferred approaches for common tasks
+
+### When Threshold Is Reached (2+ corrections on same topic)
+
+1. **Pause and propose**: Stop current work and ask:
+   ```
+   I've noticed you've corrected me about [topic] [N] times.
+   Would you like me to create a skill for it?
+
+   Suggested skill name: [kebab-case-name]
+   Description: [1-2 sentence summary based on corrections]
+   ```
+
+2. **If user confirms**: Create the skill:
+   - Create `~/.config/ai/skills/<name>/SKILL.md`
+   - Add YAML frontmatter with `name` and `description`
+   - Document the pattern/guideline clearly (use observed corrections as source material)
+   - Run `~/.config/ai/sync-hub.sh` to make it available immediately
+
+3. **If user declines**: Acknowledge and continue. Don't ask again for the same topic this session.
+
+### Skill Creation Standards
+
+When creating skills from corrections:
+
+1. **Name**: kebab-case, 1-64 chars, `^[a-z0-9]+(-[a-z0-9]+)*$`
+2. **Description**: 1-1024 chars, specific enough for agents to match correctly
+3. **Content structure**:
+   - Clear "When to use" section
+   - Actionable guidelines (not vague principles)
+   - Concrete examples where helpful
+   - Cross-references to related skills if applicable
+
+### Examples of Corrections That Become Skills
+
+| Correction Pattern | Skill Created |
+|--------------------|---------------|
+| "Use long flags not short ones" (×2) | `shell-scripting` |
+| "Always run tests before committing" (×2) | `pre-commit-checks` |
+| "Format JSON with 2-space indent" (×2) | `code-formatting` |
+| "Check package maintenance before adding deps" (×2) | `dependency-review` |
