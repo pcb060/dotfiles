@@ -208,7 +208,19 @@ if [[ -d "$OPENCODE_DIR" ]]; then
 fi
 
 # ------------------------------------------------------------------------------
-# 4. Update VS Code: settings.json
+# 4. Clean up dead symlinks in VS Code: consumable directory
+# ------------------------------------------------------------------------------
+
+log "Cleaning up dead symlinks in VS Code: consumable directory..."
+
+if [[ -d "$VSCODE_DIR" ]]; then
+    while IFS= read -r -d '' dead; do
+        remove_if_symlink "$dead"
+    done < <(find "$VSCODE_DIR" -type l ! -exec test -e {} \; -print0 2>/dev/null || true)
+fi
+
+# ------------------------------------------------------------------------------
+# 5. Update VS Code: settings.json
 # ------------------------------------------------------------------------------
 
 if [[ -f "$VSCODE_SETTINGS" ]]; then
@@ -260,7 +272,7 @@ else
 fi
 
 # ------------------------------------------------------------------------------
-# 5. Report summary
+# 6. Report summary
 # ------------------------------------------------------------------------------
 
 echo ""
