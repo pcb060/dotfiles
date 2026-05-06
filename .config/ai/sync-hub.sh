@@ -165,45 +165,30 @@ if [[ -d "${HUB_DIR}/agents" ]]; then
     fi
 fi
 
-# skills/<skill-name>/SKILL.md -> ../../skills/<skill-name>.md
+# skills/<skill-name>/SKILL.md -> symlink the entire skill directory
+# Both OpenCode and VS Code expect the same directory-per-skill format:
+#   skills/<name>/SKILL.md
+# Since the source is now in the correct format, we just symlink each skill directory.
 if [[ -d "${HUB_DIR}/skills" ]]; then
     mkdir -p "${VSCODE_DIR}/skills"
     declare -A EXPECTED_SKILL_DIRS
 
-    for src_file in "${HUB_DIR}/skills"/*.md; do
-        [[ -e "$src_file" ]] || continue
-        skill_name="$(basename "$src_file" .md)"
-        skill_dir="${VSCODE_DIR}/skills/${skill_name}"
-        skill_link="${skill_dir}/SKILL.md"
-        rel_target="../../../skills/${skill_name}.md"
+    for skill_dir in "${HUB_DIR}/skills"/*/; do
+        [[ -d "$skill_dir" ]] || continue
+        skill_name="$(basename "$skill_dir")"
+        vscode_skill_link="${VSCODE_DIR}/skills/${skill_name}"
+        rel_target="../../skills/${skill_name}"
         EXPECTED_SKILL_DIRS["$skill_name"]=1
-        mkdir -p "$skill_dir"
-        ensure_symlink "$skill_link" "$rel_target"
+        ensure_symlink "$vscode_skill_link" "$rel_target"
     done
 
-    # Clean up orphaned skill directories in vscode/skills/
+    # Clean up orphaned skill symlinks in vscode/skills/
     if [[ -d "${VSCODE_DIR}/skills" ]]; then
         for entry in "${VSCODE_DIR}/skills"/*; do
             [[ -e "$entry" ]] || continue
             entry_name="$(basename "$entry")"
             if [[ -z "${EXPECTED_SKILL_DIRS[$entry_name]+isset}" ]]; then
-                if [[ -d "$entry" ]]; then
-                    # Safety: only remove if directory contains only symlinks or is empty
-                    has_real_files=0
-                    while IFS= read -r -d '' child; do
-                        if [[ ! -L "$child" ]]; then
-                            has_real_files=1
-                            break
-                        fi
-                    done < <(find "$entry" -mindepth 1 -maxdepth 1 -print0 2>/dev/null || true)
-
-                    if [[ "$has_real_files" -eq 0 ]]; then
-                        rm -rf "$entry"
-                        REMOVED+=("orphaned skill dir $entry")
-                    else
-                        log "WARNING: $entry contains real files; skipping removal."
-                    fi
-                fi
+                remove_if_symlink "$entry"
             fi
         done
         remove_if_empty_dir "${VSCODE_DIR}/skills"

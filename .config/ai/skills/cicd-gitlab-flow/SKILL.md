@@ -1,3 +1,8 @@
+---
+name: cicd-gitlab-flow
+description: CI/CD branching strategy for small teams using GitLab Flow with long-lived develop branch
+---
+
 # CI/CD Strategy: GitLab Flow with Long-Lived Develop Branch
 
 A structured approach for defining CI/CD branching strategy for small teams (1-5 developers) with multiple deployment environments.
