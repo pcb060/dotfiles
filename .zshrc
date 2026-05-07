@@ -48,6 +48,9 @@ source <(fzf --zsh)
 
 # zoxide (autojump)
 [ -f /usr/bin/zoxide ] && eval "$(zoxide init zsh)"
+
+# navi
+eval "$(navi widget zsh)"
 ### SHELL UTILS END
 
 ### JUJUTSU START
