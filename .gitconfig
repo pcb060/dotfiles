@@ -1,6 +1,8 @@
+[include]
+    path = .gitconfig.local
+
 [user]
     name = Jacopo Giusti
-    email = pcb060@protonmail.com
 
 [push]
     autoSetupRemote = true
