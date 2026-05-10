@@ -54,10 +54,11 @@ alias ....="cd ../../.."
 alias mys="echo -n 'Sourcing .zshrc... ' && source ~/.zshrc && echo 'OK!'"
 
 # DOCKER, PODMAN & DOCKER-COMPOSE #
-alias dcd="docker-compose down"
-  alias dcdo="docker-compose down --remove-orphans"
-alias dcu="docker-compose up"
-  alias dcud="docker-compose up -d"
+alias dc="docker-compose"
+alias dcd="dc down"
+  alias dcdo="dcd --remove-orphans"
+alias dcu="dc up"
+  alias dcud="dcu -d"
 
 # K8S #
 alias k3stop="sudo systemctl stop k3s"
