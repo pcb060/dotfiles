@@ -13,6 +13,10 @@ setopt inc_append_history
 setopt share_history
 ### HISTORY OPTIONS END
 
+### PATH START
+[ -f /home/$USER/.pathsrc ] && source /home/$USER/.pathsrc
+### PATH END
+
 ### DEFAULTS START
 if command -v nvim >/dev/null 2>&1; then
   _editor=nvim
@@ -74,6 +78,3 @@ for file in "$LOCALUTILS"/*(N); do
 done
 ### SOURCING END
 
-### PATH START
-[ -f /home/$USER/.pathsrc ] && source /home/$USER/.pathsrc
-### PATH END
