@@ -1,2 +1,9 @@
 [user]
     email = pcb060@protonmail.com
+    signingKey = F1B63CB8AA0B17393676AB3143DAB40C119D628C
+
+[commit]
+    gpgSign = true
+
+[tag]
+    gpgSign = true
