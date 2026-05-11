@@ -1,2 +1,9 @@
 [user]
     email = ___@___.___
+
+[http]
+    sslverify = false
+
+[credential]
+    helper = store
+
