@@ -54,22 +54,39 @@ function rbat() {
 	tac "$1" | bat
 }
 
-# xsel implementation
-xc() {
-  local input
-  input=$(cat $1)
-  printf "%s" "$input" | xsel --clipboard --input
-  local lines=$(wc -l $1 | awk '{print $1}')
-  local chars=$(wc -m $1 | awk '{print $1}')
+# Copy file contents to clipboard
+# Works on both Xorg and Wayland
+cb() {
+  local content lines chars preview
+  content=$(cat "$1")
+  if [ -n "$WAYLAND_DISPLAY" ]; then
+    printf "%s" "$content" | wl-copy
+  elif [ -n "$DISPLAY" ]; then
+    printf "%s" "$content" | xclip -selection clipboard -i
+  else
+    pRed "❌ No clipboard manager detected (need wl-copy or xclip)"
+    return 1
+  fi
+  lines=$(wc -l < "$1")
+  chars=$(wc -c < "$1")
+  preview="${content:0:100}$( [ ${#content} -gt 100 ] && echo "…")"
   echo "✅ Copied file contents to clipboard. Preview:"
-  echo "${input:0:100}$( [ ${#input} -gt 100 ] && echo "…")" | bat --file-name="$1" --style=grid
+  echo "$preview" | bat --file-name="$1" --style=grid
   echo "Total: $lines lines, $chars characters."
 }
 
-# xsel implementation
-xcf() {
+# Copy file to clipboard
+# Works on both Xorg and Wayland
+cbf() {
   if [[ -f "$1" ]]; then
-    xsel --clipboard --input < "$1"
+    if [ -n "$WAYLAND_DISPLAY" ]; then
+      wl-copy < "$1"
+    elif [ -n "$DISPLAY" ]; then
+      xclip -selection clipboard -t application/octet-stream -i "$1"
+    else
+      pRed "❌ No clipboard manager detected (need wl-copy or xclip)"
+      return 1
+    fi
     pGreen "✅ Copied file to clipboard: $1"
   else
     pRed "❌ File not found: $1"
