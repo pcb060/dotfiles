@@ -139,6 +139,16 @@ Ask: "Do your E2E tests need access to real services (databases, APIs) that only
 
 Ask only if relevant: "Do you need any environments beyond dev, staging, and production?"
 
+### GitLab Environment Handling
+
+- **Use `environment:` for real deploy targets**: Add it for shared targets like `dev`, `staging`, `pre`, and `production` so GitLab records deployment history.
+- **Prefer stable environment names**: Use fixed names such as `pre` or `production` for long-lived targets. Use dynamic names only for review apps.
+- **Pair shared environments with `resource_group`**: If multiple pipelines can deploy to the same target, serialize them to avoid overlap.
+- **Use protected environments for sensitive targets**: On `production`, and often `staging`, use GitLab protected environments to restrict who can trigger deployments.
+- **Do not confuse environment metadata with safety controls**: `environment:` improves visibility and governance, but it does not serialize deploys or add approval gates by itself.
+
+Ask when relevant: "Do you want GitLab to track deployments per environment and restrict who can deploy to staging or production?"
+
 ## Implementation Guidance
 
 When generating `.gitlab-ci.yml`:
@@ -195,6 +205,9 @@ deploy-dev:
 ```yaml
 deploy-staging:
   stage: deploy-staging
+  environment:
+    name: staging
+  resource_group: staging
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       when: manual
@@ -206,11 +219,21 @@ deploy-staging:
 ```yaml
 deploy-production:
   stage: deploy-production
+  environment:
+    name: production
+  resource_group: production
   rules:
     - if: $CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+$/
       when: manual
   trigger: deploy-production-pipeline
 ```
+
+### Environment Metadata Guidance
+
+- Add `environment:` to all real deployment jobs so GitLab can show what is currently deployed where.
+- Add `resource_group:` for any long-lived shared environment to prevent concurrent deploys.
+- Use GitLab protected environments when the team wants deploy permissions separated from merge permissions.
+- For trunk-based flows with manual promotion, prefer deploy jobs on `main` with stable environment names over allowing every feature branch to deploy to a shared environment.
 
 ### Common Pitfalls
 
@@ -218,6 +241,8 @@ deploy-production:
 - **Pushing to registry on MR**: Pollutes registry with unmerged work. Validate only.
 - **Forgetting to tag with merge SHA**: Makes rollback and audit difficult. Always tag with the commit that introduced the image.
 - **Auto-deploying to staging**: Giving up the safety of manual gates before production-like environments.
+- **Skipping `environment:` on deploy jobs**: You lose deployment history, environment dashboards, and protected-environment controls in GitLab.
+- **Assuming `environment:` prevents collisions**: It does not. Use `resource_group` when multiple pipelines can target the same environment.
 
 ## Output Artifacts
 
