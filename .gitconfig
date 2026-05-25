@@ -17,10 +17,11 @@
 
 [delta]
     navigate = true
+    line-numbers = true
     side-by-side = true
 
 [merge]
-    conflictStyle = diff3
+    conflictStyle = zdiff3
     ff = false
 
 [pull]
