@@ -137,17 +137,42 @@ Ask: "Do your E2E tests need access to real services (databases, APIs) that only
 - Some teams have `integration` between staging and production.
 - Some have review apps (ephemeral environments per MR).
 
-Ask only if relevant: "Do you need any environments beyond dev, staging, and production?"
+If the organization already has a standard environment taxonomy, prefer that over generic names. For example:
+
+- `dev` for development
+- `int` for integration
+- `pre` for preproduction
+- `pro` for production
+
+Groupings such as `nopro` (`dev`, `int`, `pre`) versus `pro` (`pro`) are organizational conventions. They can inform naming, permissions, and dashboards, but they are separate from GitLab's deployment tiers.
+
+Ask only if relevant: "Do you need any environments beyond dev, int, pre, and pro?"
 
 ### GitLab Environment Handling
 
-- **Use `environment:` for real deploy targets**: Add it for shared targets like `dev`, `staging`, `pre`, and `production` so GitLab records deployment history.
-- **Prefer stable environment names**: Use fixed names such as `pre` or `production` for long-lived targets. Use dynamic names only for review apps.
-- **Pair shared environments with `resource_group`**: If multiple pipelines can deploy to the same target, serialize them to avoid overlap.
+- **Use `environment:` for real deploy targets**: Add it for shared targets like `dev`, `int`, `pre`, and `pro` so GitLab records deployment history.
+- **Treat `deployment_tier` as GitLab-defined metadata**: Use the predefined semantic categories `development`, `testing`, `staging`, `production`, or `other`. Do not invent custom tier values.
+- **Prefer stable environment names**: `environment:name` is your own stable identifier for the real target, so names such as `dev`, `int`, `pre`, and `pro` are valid and often preferable to longer generic labels.
+- **Default to a matching `resource_group` for shared environments**: For long-lived targets such as `dev`, `int`, `pre`, and `pro`, add `resource_group` with the same stable name unless there is a deliberate reason not to.
+- **Do not require `resource_group` for isolated ephemeral environments**: Review apps and other one-off targets usually do not need it because they are not shared deployment surfaces.
 - **Use protected environments for sensitive targets**: On `production`, and often `staging`, use GitLab protected environments to restrict who can trigger deployments.
 - **Do not confuse environment metadata with safety controls**: `environment:` improves visibility and governance, but it does not serialize deploys or add approval gates by itself.
 
-Ask when relevant: "Do you want GitLab to track deployments per environment and restrict who can deploy to staging or production?"
+Recommended mapping when the organization uses `dev` / `int` / `pre` / `pro`:
+
+- `dev` -> `deployment_tier: development`
+- `int` -> `deployment_tier: testing`
+- `pre` -> `deployment_tier: staging`
+- `pro` -> `deployment_tier: production`
+
+Recommended serialization pattern for long-lived environments:
+
+- `environment:name: dev` -> `resource_group: dev`
+- `environment:name: int` -> `resource_group: int`
+- `environment:name: pre` -> `resource_group: pre`
+- `environment:name: pro` -> `resource_group: pro`
+
+Ask when relevant: "Do you want GitLab to track deployments per environment and restrict who can deploy to pre or pro?"
 
 ## Implementation Guidance
 
@@ -195,23 +220,28 @@ docker-build:
 ```yaml
 deploy-dev:
   stage: deploy-dev
+  environment:
+    name: dev
+    deployment_tier: development
+  resource_group: dev
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
   trigger: deploy-dev-pipeline  # Or inline script
 ```
 
-**Deploy staging (manual):**
+**Deploy integration (manual):**
 
 ```yaml
-deploy-staging:
+deploy-int:
   stage: deploy-staging
   environment:
-    name: staging
-  resource_group: staging
+    name: int
+    deployment_tier: testing
+  resource_group: int
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       when: manual
-  trigger: deploy-staging-pipeline
+  trigger: deploy-int-pipeline
 ```
 
 **Deploy production (tag-based):**
@@ -220,18 +250,36 @@ deploy-staging:
 deploy-production:
   stage: deploy-production
   environment:
-    name: production
-  resource_group: production
+    name: pro
+    deployment_tier: production
+  resource_group: pro
   rules:
     - if: $CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+$/
       when: manual
   trigger: deploy-production-pipeline
 ```
 
+**Deploy preproduction (manual):**
+
+```yaml
+deploy-pre:
+  stage: deploy-staging
+  environment:
+    name: pre
+    deployment_tier: staging
+  resource_group: pre
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: manual
+  trigger: deploy-pre-pipeline
+```
+
 ### Environment Metadata Guidance
 
 - Add `environment:` to all real deployment jobs so GitLab can show what is currently deployed where.
-- Add `resource_group:` for any long-lived shared environment to prevent concurrent deploys.
+- Keep `environment:name` aligned with the organization's stable environment names, even when those names differ from GitLab's deployment-tier labels.
+- Use `deployment_tier` only to classify the environment semantically for GitLab reporting.
+- Add `resource_group:` for any long-lived shared environment to prevent concurrent deploys; treat this as the default, not an optional enhancement.
 - Use GitLab protected environments when the team wants deploy permissions separated from merge permissions.
 - For trunk-based flows with manual promotion, prefer deploy jobs on `main` with stable environment names over allowing every feature branch to deploy to a shared environment.
 
