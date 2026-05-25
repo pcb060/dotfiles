@@ -18,5 +18,11 @@
     },
     "chat.useAgentSkills": true,
     "go.gopath": "~/.go",
-    "workbench.colorTheme": "Gruvbox Dark Hard"
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
 }
