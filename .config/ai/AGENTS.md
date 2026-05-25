@@ -44,17 +44,29 @@ Before writing a commit message, inspect the repository's existing commit histor
 
 Before committing, present the user with 1–3 pre-written commit message options in a multi-choice form. The user may select one or propose their own. Do not commit until the user confirms the message.
 
-Every commit that incorporates AI-generated changes MUST include an `Assisted-by` trailer in the following format:
+### Commit message body
+
+Only include a body for changes that are complex, easy to misread, or require justification that is not immediately obvious from the diff. When included, the body MUST explain **why** the change was made — not what was done. This rule takes precedence over any style observed in the repository's commit history.
+
+### Assisted-by trailer
+
+Every commit that incorporates AI-generated changes MUST include an `Assisted-by` trailer, following the Linux kernel trailer convention.
+
+Format:
 
     Assisted-by: AGENT_NAME:MODEL_VERSION [TOOL1] [TOOL2]
 
 Where:
-- AGENT_NAME is the AI tool or framework name
-- MODEL_VERSION is the specific model used
-- [TOOL1] [TOOL2] are optional specialized analysis tools used
 
-Example:
-    Assisted-by: opencode:kimi-k2.6
+- `AGENT_NAME` is the name of the AI tool or framework (e.g., `OpenCode`, `Copilot`).
+- `MODEL_VERSION` is the specific model version used (e.g., `claude-sonnet-4-6`, `gpt-4o`).
+- `[TOOL1] [TOOL2]` are optional specialized analysis tools used during the session. Basic tools like git, gcc, make, or editors should NOT be listed.
+
+Examples:
+
+    Assisted-by: OpenCode:claude-sonnet-4-6
+    Assisted-by: Copilot:gpt-4o
+    Assisted-by: Copilot:claude-haiku-4-5
 
 ## Language
 
