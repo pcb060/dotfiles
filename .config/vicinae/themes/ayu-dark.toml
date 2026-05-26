@@ -1,0 +1,63 @@
+[meta]
+version = 1
+name = "Ayu Dark"
+description = "Ayu Dark palette for Vicinae"
+variant = "dark"
+inherits = "vicinae-dark"
+
+[colors.core]
+accent             = "#e6b450"
+accent_foreground  = "#0d1017"
+background         = "#0d1017"
+foreground         = "#bfbdb6"
+secondary_background = "#141821"
+border             = "#1b1f29"
+
+[colors.accents]
+blue    = "#4fbfff"
+green   = "#70bf56"
+magenta = "#d0a1ff"
+orange  = "#f29668"
+red     = "#f06b73"
+yellow  = "#fdb04c"
+cyan    = "#93e2c8"
+purple  = "#d0a1ff"
+
+[colors.text]
+default     = "#bfbdb6"
+muted       = "#5a6378"
+danger      = "#f06b73"
+success     = "#70bf56"
+placeholder = "#5a6673"
+selection   = { background = "#e6b450", foreground = "#0d1017" }
+
+[colors.text.links]
+default = "#4fbfff"
+visited = "#d0a1ff"
+
+[colors.input]
+border       = "#1b1f29"
+border_focus = "#e6b450"
+border_error = "#f06b73"
+
+[colors.list.item.hover]
+foreground           = "#ffffff"
+secondary_foreground = "#5a6378"
+
+[colors.list.item.selection]
+background           = "#1b1f29"
+foreground           = "#ffffff"
+secondary_background = "#1b1f29"
+secondary_foreground = "#e6b450"
+
+[colors.grid.item]
+background = "#141821"
+hover      = { outline = "#e6b450" }
+selection  = { outline = "#e6b450" }
+
+[colors.scrollbars]
+background = "#141821"
+
+[colors.loading]
+bar     = "#e6b450"
+spinner = "#e6b450"
