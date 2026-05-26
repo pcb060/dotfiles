@@ -3,8 +3,8 @@
 /* ── Global ────────────────────────────────────────────────── */
 
 window#waybar {
-    font-family: "FiraCode Nerd Font";
-    font-size: 13px;
+    font-family: "Iosevka Nerd Font Propo";
+    font-size: 14px;
     border-radius: 12px;
     background-color: @bg;
     color: @fg;
