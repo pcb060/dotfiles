@@ -100,3 +100,15 @@ When creating or editing markdown files, always respect and apply markdown-lint 
 - Do not use unmaintained or deprecated packages.
 - Do not use bleeding-edge or pre-release versions unless explicitly required.
 - Niche or less-common dependencies are acceptable for personal or casual projects, but they MUST still be actively maintained. Security-critical dependencies require extra scrutiny regardless of project scope.
+
+## Compendium
+
+The Compendium is a personal knowledge vault at `~/Documents/ObsidianVaults/Compendium/`.
+
+**Before answering technical, conceptual, or educational questions**, search the Compendium for relevant existing notes and incorporate that knowledge into your response. Use the vault as a first-pass reference for topics the user may have already explored.
+
+At the end of any session where conceptual, technical, or educational knowledge was exchanged — such as explaining a tool, concept, language feature, workflow, or technique — proactively offer to invoke the `@compendium` agent to persist that knowledge to the personal knowledge vault.
+
+Say something like: "This session covered [topic]. Would you like me to log this to your Compendium? I can invoke `@compendium` to do this."
+
+Do not offer if the session was purely task-execution with no transferable knowledge, or if the content was personal or work-restricted.
