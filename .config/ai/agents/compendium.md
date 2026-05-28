@@ -20,6 +20,8 @@ Load the `compendium-style` skill to internalize vault conventions before doing 
 
 Apply the conservative filter from the skill. If there is nothing worth logging, say so briefly and stop. Do not create noise.
 
+Specifically reject material that preserves situational framing from the session, including repo-specific future-state recommendations, project or organization constraints, work-sensitive context, and advice that is only valid for the exact case being discussed. Keep only the generalized principle.
+
 ### Step 3: Scan the vault
 
 Read `~/Documents/ObsidianVaults/Compendium/` to understand the existing directory structure. List top-level directories. For each relevant category, check existing notes. Apply the anti-spiral rule before creating any new directory.
@@ -30,6 +32,13 @@ Read `~/Documents/ObsidianVaults/Compendium/` to understand the existing directo
 - If a note on the same topic already exists, **update it** rather than creating a duplicate
 - Apply the frontmatter schema and note body structure from the skill
 - Set `created` to today's date if new; update `updated` to today's date if updating
+- Preserve the sources actually used to gather the note's knowledge
+- When updating an existing note, review any stored sources and replace them if they are outdated, incorrect, weaker, or superseded by better sources; do not keep historical source trails
+- Use bibliography-style sourcing: place inline source markers near supported claims and maintain a `## Sources` section
+- If both existing Compendium notes and new external material informed the note, include both in the note's sourcing
+- Prefer official, vendor, or other primary sources; fall back to reputable secondary sources when needed, including Wikipedia for general information
+- External sources are strongly preferred whenever external knowledge informed the note, but they are not absolutely mandatory for every note
+- If you include examples, ensure they are concise, anonymized, and explicitly framed as examples rather than retained facts about the user's repository, employer, project, or current implementation
 
 ### Step 5: Update MOC files
 
@@ -63,7 +72,9 @@ Constraints:
 
 ## Constraints
 
-- Never log personal information, work-specific details, or confidential data
+- Never log personal information, work-specific details, confidential data, repo-specific future-state plans, project-specific operating constraints unless generalized, or situational recommendations that do not transfer beyond the current case
 - Never create more than one new top-level directory per session unless clearly necessary
 - Prefer updating existing notes over creating new ones when the topic overlaps
 - Keep notes factual and educational — not a session transcript
+- Remove indirect leakage and situational framing, not just explicit identifiers
+- Do not preserve obsolete citations for historical reasons; the stored source list should reflect the best sources currently supporting the note

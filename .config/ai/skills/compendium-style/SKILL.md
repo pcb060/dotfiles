@@ -7,7 +7,7 @@ description: Conventions and governance rules for writing notes to the personal 
 
 ## Purpose
 
-The Compendium is a personal knowledge base — a growing, agent-maintained Wikipedia of concepts, skills, tools, and techniques accumulated through agentic sessions. Notes must be durable, reusable, and non-personal.
+The Compendium is a personal knowledge base — a growing, agent-maintained Wikipedia of concepts, skills, tools, and techniques accumulated through agentic sessions. Notes must be durable, reusable, non-personal, and framed as general knowledge rather than as records of a specific repository, workplace, or situation.
 
 ## What to Log (Conservative Filter)
 
@@ -18,7 +18,34 @@ Log a note only when ALL of the following are true:
 - The knowledge is **non-work-restricted** (no proprietary or confidential information)
 - The knowledge has **reuse value** — something worth looking up again in the future
 
-Do NOT log: one-off scripts, personal decisions, work project details, trivial reminders.
+Do NOT log: one-off scripts, personal decisions, work project details, trivial reminders, repo-specific future-state plans, project-specific operating constraints unless abstracted into general principles, work-sensitive context, or recommendations that only make sense for the discussed case.
+
+## Generalization Boundary
+
+Compendium notes must retain only durable knowledge that should still be useful outside the original conversation.
+
+Exclude the following unless they are fully abstracted into reusable principles:
+
+- repo-specific or environment-specific future-state recommendations
+- organization-, team-, or project-specific operating constraints
+- work-sensitive, proprietary, or identifying context
+- situational implementation advice that is only valid for the exact system being discussed
+
+When a conversation includes both general knowledge and case-specific discussion:
+
+1. Keep the reusable concept, pattern, tradeoff, or principle.
+2. Strip names, repositories, environments, roadmaps, and local operating details.
+3. Rewrite any surviving example so it is anonymized and clearly presented as an example, not as a retained fact about the user's systems.
+
+Good note content:
+
+- "A common deployment pattern is to separate reusable chart artifacts from environment-specific release configuration."
+- "When documenting an architecture choice, capture the tradeoff in general terms rather than the current repo's rollout plan."
+
+Do not retain content like:
+
+- "Future-state model: this repo should move to one canonical chart artifact plus one environment-specific HelmRelease per environment."
+- "This team's deployment constraints require..."
 
 ## Vault Structure & Taxonomy Governance
 
@@ -56,6 +83,8 @@ source: "Brief description of session or topic origin"
 ---
 ```
 
+The `source` frontmatter field captures note provenance at a high level. Detailed citations belong in the note body under `## Sources`.
+
 ## Note Body Structure
 
 Use this structure for every note:
@@ -65,15 +94,20 @@ Use this structure for every note:
 
 ## Summary
 
-One to three sentences describing the concept.
+One to three sentences describing the concept, with inline source markers where appropriate.[^1]
 
 ## Key Concepts
 
-Bullet points or short paragraphs explaining core ideas.
+Bullet points or short paragraphs explaining core ideas, placing source markers next to supported claims.[^1][^2]
 
 ## Examples
 
-Concrete examples, code snippets, or commands illustrating the concept.
+Concrete examples, code snippets, or commands illustrating the concept. Examples must be abstracted/anonymized and explicitly framed as examples; do not present situational recommendations, repo history, or workplace context as durable note content.
+
+## Sources
+
+[^1]: Source title or note name — URL or `[[WikiLink]]`
+[^2]: Another source title — URL
 
 ## Related
 
@@ -82,6 +116,18 @@ Concrete examples, code snippets, or commands illustrating the concept.
 ```
 
 Omit sections that have no content rather than leaving them empty.
+
+## Sourcing Policy
+
+- Preserve the sources actually used to gather or verify the note's knowledge.
+- Use bibliography/Wikipedia-style citations: add inline source markers near the claims they support and maintain a `## Sources` section.
+- Sources are strongly preferred whenever external knowledge informed the note, but they are not absolutely mandatory in every case.
+- If both an existing Compendium note and new external documentation informed the note, include both.
+- Prefer official, vendor, standards-body, or other primary sources when available.
+- If stronger primary sources are unavailable, use reputable secondary sources. Wikipedia is acceptable for general information when better sources are unavailable.
+- When updating an existing note, review the stored sources and fully replace outdated, incorrect, weaker, or superseded sources with the best current sources.
+- Do not keep historical source trails just because an older source appeared in a prior version of the note.
+- The `## Sources` section should reflect the sources that currently justify the note as written, not every source ever consulted.
 
 ## Obsidian Conventions
 

@@ -112,3 +112,5 @@ At the end of any session where conceptual, technical, or educational knowledge 
 Say something like: "This session covered [topic]. Would you like me to log this to your Compendium? I can invoke `@compendium` to do this."
 
 Do not offer if the session was purely task-execution with no transferable knowledge, or if the content was personal or work-restricted.
+
+When contributing to the Compendium, retain only durable, generalizable knowledge. Do not preserve repo-specific future-state recommendations, project or organization constraints unless abstracted into general principles, work-sensitive context, or situational advice that only fits the current implementation. Abstracted, anonymized examples are allowed when they are clearly presented as examples rather than facts about the discussed system.
