@@ -54,7 +54,9 @@ source <(fzf --zsh)
 [ -f /usr/bin/zoxide ] && eval "$(zoxide init zsh)"
 
 # navi
-eval "$(navi widget zsh)"
+if command -v navi &>/dev/null; then
+  eval "$(navi widget zsh)"
+fi
 ### SHELL UTILS END
 
 ### JUJUTSU START
