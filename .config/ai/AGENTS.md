@@ -107,9 +107,11 @@ The Compendium is a personal knowledge vault at `~/Documents/ObsidianVaults/Comp
 
 **Before answering technical, conceptual, or educational questions**, search the Compendium for relevant existing notes and incorporate that knowledge into your response. Use the vault as a first-pass reference for topics the user may have already explored.
 
-At the end of any session where conceptual, technical, or educational knowledge was exchanged — such as explaining a tool, concept, language feature, workflow, or technique — proactively offer to invoke the `@compendium` agent to persist that knowledge to the personal knowledge vault.
+When a conversation appears to contain durable conceptual, technical, or educational knowledge worth preserving — such as explanations of a tool, concept, language feature, workflow, or technique — proactively say so and ask whether the user wants to invoke the `@compendium` agent to persist it to the personal knowledge vault.
 
 Say something like: "This session covered [topic]. Would you like me to log this to your Compendium? I can invoke `@compendium` to do this."
+
+Do this proactively when the signal is strong, not only at the very end of the session. Always ask for confirmation before creating or updating a Compendium entry; never write automatically just because the topic seems worth preserving.
 
 Do not offer if the session was purely task-execution with no transferable knowledge, or if the content was personal or work-restricted.
 
