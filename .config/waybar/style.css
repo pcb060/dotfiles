@@ -1,9 +1,9 @@
-@import "./themes/ayu-dark.css";
+@import "./themes/vitesse-dark.css";
 
 /* ── Global ────────────────────────────────────────────────── */
 
 window#waybar {
-    font-family: "Iosevka Nerd Font Propo";
+    font-family: "FantasqueSansM Nerd Font Propo";
     font-size: 14px;
     border-radius: 12px;
     background-color: @bg;

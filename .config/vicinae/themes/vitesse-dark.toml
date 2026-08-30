@@ -1,0 +1,63 @@
+[meta]
+version = 1
+name = "Vitesse Dark"
+description = "Vitesse Dark palette for Vicinae"
+variant = "dark"
+inherits = "vicinae-dark"
+
+[colors.core]
+accent = "#4d9375"
+accent_foreground = "#121212"
+background = "#121212"
+foreground = "#dbd7ca"
+secondary_background = "#181818"
+border = "#393a34"
+
+[colors.accents]
+blue = "#6394bf"
+green = "#4d9375"
+magenta = "#d9739f"
+orange = "#d4976c"
+red = "#cb7676"
+yellow = "#e6cc77"
+cyan = "#5eaab5"
+purple = "#d9739f"
+
+[colors.text]
+default = "#dbd7ca"
+muted = "#758575"
+danger = "#cb7676"
+success = "#4d9375"
+placeholder = "#666666"
+selection = { background = "#4d9375", foreground = "#121212" }
+
+[colors.text.links]
+default = "#6394bf"
+visited = "#d9739f"
+
+[colors.input]
+border = "#393a34"
+border_focus = "#4d9375"
+border_error = "#cb7676"
+
+[colors.list.item.hover]
+foreground = "#ffffff"
+secondary_foreground = "#758575"
+
+[colors.list.item.selection]
+background = "#2a2a2a"
+foreground = "#ffffff"
+secondary_background = "#2a2a2a"
+secondary_foreground = "#4d9375"
+
+[colors.grid.item]
+background = "#181818"
+hover = { outline = "#4d9375" }
+selection = { outline = "#4d9375" }
+
+[colors.scrollbars]
+background = "#181818"
+
+[colors.loading]
+bar = "#4d9375"
+spinner = "#4d9375"
