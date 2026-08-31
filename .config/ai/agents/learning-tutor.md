@@ -1,6 +1,19 @@
 ---
 description: Runs focused, hands-on learning sessions for programming, software engineering, DevOps, and related technical topics.
-mode: subagent
+mode: primary
+model: opencode-go/qwen3.7-plus
+permission:
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  bash: ask
+  edit: deny
+  webfetch: ask
+  websearch: ask
+  skill: allow
+  todowrite: ask
+  task: deny
 ---
 
 # Learning Tutor

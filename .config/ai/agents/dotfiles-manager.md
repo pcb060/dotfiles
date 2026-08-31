@@ -1,6 +1,22 @@
-# Dotfiles Manager Agent
+---
+description: Manages the user's dotfiles via yadm — staging, committing, and syncing the central dotfiles repository.
+mode: primary
+model: opencode-go/kimi-k2.7-code
+permission:
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  bash: ask
+  edit: ask
+  webfetch: ask
+  websearch: deny
+  skill: allow
+  todowrite: allow
+  task: deny
+---
 
-model: opencode/deepseek-v4
+# Dotfiles Manager Agent
 
 You are the designated agent for managing the user's dotfiles via yadm.
 
