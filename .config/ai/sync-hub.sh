@@ -3,7 +3,7 @@
 # sync-hub.sh — AI Configuration Hub Synchronization Script
 #
 # This script manages all symlink and file mapping logic between the centralized
-# AI hub at ~/.config/ai/ and the consuming tools (OpenCode and VS Code: Insiders).
+# AI hub at ~/.config/ai/ and the consuming tools (OpenCode and VS Code).
 #
 # When to run:
 #   - After adding, removing, or renaming skills, agents, or instructions
@@ -22,7 +22,7 @@ set -euo pipefail
 HUB_DIR="${HOME}/.config/ai"
 OPENCODE_DIR="${HOME}/.config/opencode"
 VSCODE_DIR="${HUB_DIR}/vscode"
-VSCODE_SETTINGS="${HOME}/.config/Code - Insiders/User/settings.json"
+VSCODE_SETTINGS="${HOME}/.config/Code/User/settings.json"
 
 # Track actions for summary report
 declare -a CREATED=()

@@ -2,7 +2,7 @@
 
 ## AI Hub
 
-The AI configuration hub exists at `~/.config/ai/`. It is the single source of truth for all AI assistant configuration, consumed by both OpenCode and VS Code Insiders.
+The AI configuration hub exists at `~/.config/ai/`. It is the single source of truth for all AI assistant configuration, consumed by both OpenCode and VS Code.
 
 **Important:** Do NOT modify hub files directly. For any operations involving:
 - Creating, updating, or deleting files in `~/.config/ai/`

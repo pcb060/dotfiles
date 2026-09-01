@@ -54,7 +54,7 @@ You are the designated agent for managing the centralized AI configuration hub a
    - **OpenCode**: consumes directly via symlinks: `~/.config/opencode/AGENTS.md`, `~/.config/opencode/agents/`, `~/.config/opencode/skills/`.
 
 3. **Keep VS Code: settings accurate.**
-   - The script updates `~/.config/Code - Insiders/User/settings.json` automatically to point `chat.*Locations` entries to the generated `~/.config/ai/vscode/` paths.
+   - The script updates `~/.config/Code/User/settings.json` automatically to point `chat.*Locations` entries to the generated `~/.config/ai/vscode/` paths.
    - If a new category of reusable guidance is added, update `sync-hub.sh` to generate the corresponding consumable directory and update settings.json.
 
 4. **Verify after every change.**
@@ -62,7 +62,7 @@ You are the designated agent for managing the centralized AI configuration hub a
    - Run `ls -la ~/.config/opencode/` and confirm every symlink resolves.
    - Run `find ~/.config/ai/vscode -type f -o -type l | sort` to confirm generated VS Code: consumables exist.
    - Run `cat ~/.config/opencode/AGENTS.md` to confirm the symlink is readable.
-   - Check `~/.config/Code - Insiders/User/settings.json` to confirm all paths under `chat.*Locations` still exist.
+   - Check `~/.config/Code/User/settings.json` to confirm all paths under `chat.*Locations` still exist.
 
 5. **No orphan files.**
     - Do not leave behind empty or broken symlinks.
