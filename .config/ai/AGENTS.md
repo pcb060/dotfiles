@@ -13,9 +13,23 @@ Invoke the `/ai-hub-maintainer` agent to handle all hub maintenance operations.
 
 ## Workflow
 
-- Follow TDD: write failing tests before implementation.
+- Follow TDD: write failing tests before implementation when it makes sense for the project.
 - Tests should express intent and constrain the solution.
-- Do not skip the failing-test step to get to the fix faster.
+- Do not skip the failing-test step to get to the fix faster, when tests are warranted.
+
+### When TDD applies
+
+- Larger, structured codebases (e.g. Java, Go, Python services, libraries with stable APIs).
+- Projects that already have a test framework set up.
+- Changes that touch public APIs or shared utilities where regressions are costly.
+
+### When TDD is overkill
+
+- Small shell scripts, CI/CD pipelines, one-off glue code.
+- Config files, dotfiles tweaks, and dotfiles tooling.
+- Throwaway prototypes or exploratory snippets.
+
+Use judgement: if the project already has a test suite and the change is non-trivial, write tests first.
 
 ## Project Context
 
