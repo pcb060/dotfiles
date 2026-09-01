@@ -246,19 +246,25 @@ path_mappings = {
     "~/.config/ai/skills": "~/.config/ai/vscode/skills",
 }
 
-for key in ["chat.instructionsFilesLocations", "chat.agentFilesLocations", "chat.agentSkillsLocations"]:
-    if key not in data:
-        continue
-    locs = data[key]
-    if isinstance(locs, dict):
-        new_locs = {}
-        for path, enabled in locs.items():
-            if path in path_mappings:
-                new_locs[path_mappings[path]] = enabled
-                updated = True
-            else:
-                new_locs[path] = enabled
-        data[key] = new_locs
+for key, canonical_path in {
+    "chat.instructionsFilesLocations": "~/.config/ai/vscode/instructions",
+    "chat.agentFilesLocations": "~/.config/ai/vscode/agents",
+    "chat.agentSkillsLocations": "~/.config/ai/vscode/skills",
+}.items():
+    locs = data.get(key)
+    if not isinstance(locs, dict):
+        locs = {}
+    new_locs = {}
+    for path, enabled in locs.items():
+        if path in path_mappings:
+            new_locs[path_mappings[path]] = enabled
+            updated = True
+        else:
+            new_locs[path] = enabled
+    if canonical_path not in new_locs:
+        new_locs[canonical_path] = True
+        updated = True
+    data[key] = new_locs
 
 if updated:
     with open(settings_path, 'w') as f:
