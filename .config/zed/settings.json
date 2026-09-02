@@ -7,6 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "indent_guides": {
+    "active_line_width": 2,
+    "line_width": 1,
+    "background_coloring": "indent_aware",
+    "coloring": "indent_aware"
+  },
+  "mouse_wheel_zoom": true,
+  "vim_mode": true,
   "show_whitespaces": "boundary",
   "terminal": {
     "font_family": "FantasqueSansM Nerd Font"
