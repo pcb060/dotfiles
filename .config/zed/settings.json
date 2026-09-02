@@ -10,21 +10,33 @@
   "indent_guides": {
     "active_line_width": 2,
     "line_width": 1,
-    "background_coloring": "indent_aware",
-    "coloring": "indent_aware"
+  },
+  "languages": {
+    "YAML": {
+      "indent_guides": {
+        "background_coloring": "indent_aware",
+        "coloring": "indent_aware",
+      },
+    },
+    "Python": {
+      "indent_guides": {
+        "background_coloring": "indent_aware",
+        "coloring": "indent_aware",
+      },
+    },
   },
   "mouse_wheel_zoom": true,
   "vim_mode": true,
   "show_whitespaces": "boundary",
   "terminal": {
-    "font_family": "FantasqueSansM Nerd Font"
+    "font_family": "FantasqueSansM Nerd Font",
   },
   "language_models": {
     "opencode": {
       "show_go_models": true,
       "show_free_models": false,
-      "show_zen_models": false
-    }
+      "show_zen_models": false,
+    },
   },
   "proxy": "",
   "when_closing_with_no_tabs": "keep_window_open",
@@ -37,26 +49,26 @@
       "default_config_options": {
         "effort": "thinking",
         "mode": "plan",
-        "model": "opencode-go/minimax-m3"
+        "model": "opencode-go/minimax-m3",
       },
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "icon_theme": {
     "mode": "system",
     "light": "Material Icon Theme",
-    "dark": "Colored Zed Icons Theme Dark"
+    "dark": "Colored Zed Icons Theme Dark",
   },
   "buffer_font_family": "FantasqueSansM Nerd Font",
   "edit_predictions": {
     "open_ai_compatible_api": {
       "model": "opencode-go/qwen3.8-flash",
-      "api_url": "https://opencode.ai/zen/go/v1/messages"
+      "api_url": "https://opencode.ai/zen/go/v1/messages",
     },
-    "provider": "open_ai_compatible_api"
+    "provider": "open_ai_compatible_api",
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "ui_font_size": 16,
   "buffer_font_size": 15.0,
