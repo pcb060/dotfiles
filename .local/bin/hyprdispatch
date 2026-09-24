@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+HYPRCTL=/usr/bin/hyprctl
+
+usage() {
+    cat <<'EOF'
+Usage: hyprdispatch exec [--] <command> [args...]
+       hyprdispatch focus <workspace>
+       hyprdispatch workspace <workspace>
+       hyprdispatch <hyprctl args...>
+EOF
+    exit 1
+}
+
+if [ $# -eq 0 ]; then
+    usage
+fi
+
+sub="$1"
+shift
+
+case "$sub" in
+    -h|--help)
+        usage
+        ;;
+    exec)
+        [ $# -gt 0 ] && [ "$1" = "--" ] && shift
+        if [ $# -eq 0 ]; then
+            echo "hyprdispatch: missing command after exec" >&2
+            usage
+        fi
+        cmd="$*"
+        # Escape double quotes for the Lua string literal.
+        cmd="${cmd//\"/\\\"}"
+        exec "$HYPRCTL" dispatch "hl.dsp.exec_cmd(\"$cmd\")"
+        ;;
+    focus|workspace)
+        if [ $# -eq 0 ]; then
+            echo "hyprdispatch: missing workspace" >&2
+            usage
+        fi
+        exec "$HYPRCTL" dispatch "hl.dsp.focus({ workspace = $1 })"
+        ;;
+    *)
+        exec "$HYPRCTL" "$sub" "$@"
+        ;;
+esac
