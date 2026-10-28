@@ -1,11 +1,15 @@
 ---
 name: gitlab-merge-requests
-description: Use when creating or updating GitLab merge requests with glab, especially when a preview, explicit confirmation, host-specific authentication checks, or non-push MR creation matters.
+description: Use when creating or updating GitLab merge requests, especially when a preview, explicit confirmation, host-specific authentication checks, or non-push MR creation matters. Prefer glab under the gitlab-interactions policy.
 ---
 
 # GitLab Merge Requests
 
 Use this skill when working with GitLab merge requests from a local repository, especially with `glab`.
+
+Also load `gitlab-interactions` for tool selection, host/authentication checks,
+fallbacks, and remote-state safety. Its justified alternatives apply here too;
+the MR preview and confirmation requirements remain unchanged for every tool.
 
 ## Goals
 
@@ -20,7 +24,8 @@ Use this skill when working with GitLab merge requests from a local repository, 
 2. Determine the current source branch and intended target branch.
 3. Summarize the branch delta and prepare a merge request preview.
 4. Ask for explicit confirmation before creating the merge request.
-5. Create the merge request with `glab`.
+5. Create the merge request with `glab` by default, or a justified alternative
+   under `gitlab-interactions`.
 
 ## Preferred Behavior
 
@@ -48,6 +53,9 @@ Only consider push-based MR creation when all of the following are true:
 - `glab` cannot create the merge request directly.
 - the source branch does not already exist on the remote, or the user explicitly requests a push-based flow.
 - the user explicitly confirms the push.
+
+The general Git Safety rule requires two separate confirmations before a push.
+Approval to create a merge request is not approval to push a branch.
 
 ### Always preview before creation
 

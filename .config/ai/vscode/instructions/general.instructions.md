@@ -61,6 +61,17 @@ ALWAYS ask for user confirmation before performing git operations:
   - Any other actions that affect shared project state
   - **Issues linked to draft MRs:** Wait until the associated merge request's draft status is lifted before commenting on or closing issues. Commenting prematurely pollutes the issue history.
 
+## GitLab Interactions
+
+When a task requires interacting with a GitLab instance (including self-hosted
+instances), load the `gitlab-interactions` skill. Prefer `glab` CLI and use
+`glab api` when a dedicated subcommand is missing. Use another available tool
+only when it is demonstrably better suited to the task or `glab` cannot complete
+it; explain the reason. Verify the target host and authentication, never expose
+tokens, and preserve the confirmation requirements above for remote changes.
+For merge request creation or updates, also load `gitlab-merge-requests`.
+This does not require `glab` for local Git operations or offline CI configuration.
+
 ## Commits
 
 Before writing a commit message, inspect the repository's existing commit history. If an established style is present, follow it. If no style is established, default to Conventional Commits without scope. Scope MUST only be included if the repository already uses it consistently.
