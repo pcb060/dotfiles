@@ -9,7 +9,10 @@ The AI configuration hub exists at `~/.config/ai/`. It is the single source of t
 - Managing symlinks between `~/.config/ai/` and `~/.config/opencode/`
 - Syncing content between `skills/`, `instructions/`, and VS Code settings
 
-Invoke the `/ai-hub-maintainer` agent to handle all hub maintenance operations.
+Switch to the `ai-hub-maintainer` agent to handle all hub maintenance operations
+(OpenCode's agent selector or VS Code's chat agent picker). If the client cannot
+switch agents automatically, ask the user to select it and provide a handoff
+summary; do not assume slash-command or subagent invocation support.
 
 ## Workflow
 

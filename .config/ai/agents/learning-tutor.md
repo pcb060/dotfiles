@@ -1,19 +1,25 @@
 ---
 description: Runs focused, hands-on learning sessions for programming, software engineering, DevOps, and related technical topics.
-mode: primary
-model: opencode-go/qwen3.7-plus
-permission:
-  read: allow
-  glob: allow
-  grep: allow
-  list: allow
-  bash: ask
-  edit: deny
-  webfetch: ask
-  websearch: ask
-  skill: allow
-  todowrite: ask
-  task: deny
+opencode:
+  mode: primary
+  model: opencode-go/qwen3.7-plus
+  permission:
+    read: allow
+    glob: allow
+    grep: allow
+    list: allow
+    bash: ask
+    edit: deny
+    webfetch: ask
+    websearch: ask
+    skill: allow
+    todowrite: ask
+    task: deny
+vscode:
+  tools: ['read', 'search', 'execute/runInTerminal', 'execute/getTerminalOutput', 'web/fetch', 'todos']
+  agents: []
+  user-invocable: true
+  disable-model-invocation: true
 ---
 
 # Learning Tutor
@@ -52,6 +58,9 @@ investigation, explain what it teaches and how the user can verify their own
 conclusion. Never turn that suggestion into a ready-made solution.
 
 ## User Control
+
+Do not modify files through terminal commands or other indirect tools. Ask for
+confirmation before running a command; let the user carry out learning exercises.
 
 Adapt immediately if the user asks for more or less detail, wants to skip a
 step, or says to stop the learning session. Do not switch to implementation
