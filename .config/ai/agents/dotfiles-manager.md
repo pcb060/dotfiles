@@ -143,7 +143,6 @@ Commit message approach:
 - Review recent commits for style: `git --git-dir=$HOME/.local/share/yadm/repo.git log --oneline -20`
 - Match the existing style (simple descriptive messages, no strict conventional commit format)
 - Present 1-3 options as multi-choice
-- Include `Assisted-by` trailer for AI-generated changes
 - Include body only when change is complex or needs justification
 
 ### 6. Handle Bootstrap
