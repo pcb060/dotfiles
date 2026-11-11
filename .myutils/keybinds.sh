@@ -5,4 +5,4 @@ yazi-open() {
   zle reset-prompt
 }
 zle -N yazi-open
-bindkey '^e' yazi-open
+bindkey '^[e' yazi-open
