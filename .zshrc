@@ -3,6 +3,15 @@
 ### ZSH OPTIONS START
 setopt rmstarsilent # disable zsh's confirmation for 'rm *'
 
+setopt interactivecomments # enable '#' for comments in CLI
+# Do not save comment-only lines in history
+autoload -Uz add-zsh-hook
+_skip_comment_lines() {
+  [[ $1 =~ '^[[:space:]]*#' ]] && return 1
+  return 0
+}
+add-zsh-hook zshaddhistory _skip_comment_lines
+
 # Get rid of .zcompdump* files in the home
 # See: https://stackoverflow.com/questions/62931101/i-have-multiple-files-of-zcompdump-why-do-i-have-multiple-files-of-these
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
