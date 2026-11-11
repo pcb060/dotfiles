@@ -9,7 +9,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "vitesse",
+    colorscheme = "everforest",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     -- Icons can be configured throughout the interface
     icons = {
